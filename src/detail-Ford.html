@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoFlux</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="shortcut icon" href="./image/Logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="output.css" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light blue-gray background */
+            transition: background-color 0.3s ease;
+        }
+        body.dark {
+        background-color: #1a202c;
+      }
+
+      .hero-background {
+        background-image: url("./image/big02.webp");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .text-shadow-strong {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      }
+
+    </style>
+</head>
+<body class="overflow-x-hidden overflow-y-auto">
+
+    <!-- Navbar -->
+    <header class="bg-gray-800 text-white p-4 shadow-md dark:bg-gray-900 sticky top-0 z-50">
+      <div class="container mx-auto flex justify-between items-center px-4 md:px-0">
+        <div class="flex items-center">
+          <img src="./image/Logo.png" alt="AutoFlux Logo" class="h-16 w-16 md:h-20 md:w-20 rounded-full mr-2" />
+          <span class="text-md font-bold">AUTOFLUX</span>
+        </div>
+
+        <nav class="hidden md:flex space-x-6">
+          <a href="./Home-page.html" class="hover:text-gray-300">Home</a>
+          <a href="#" class="hover:text-gray-300">Shop</a>
+          <a href="#" class="hover:text-gray-300">About Us</a>
+          <a href="#" class="hover:text-gray-300">Contact</a>
+        </nav>
+
+        <div class="hidden md:flex items-center space-x-4">
+          <button id="theme-toggle" class="text-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-2xl md:text-2xl p-2.5">
+            <i id="theme-icon" class="fa-solid fa-moon"></i>
+          </button>
+          <a href="login.html" class="text-white hover:text-gray-300 cursor-pointer">
+            <i class="fas fa-user-circle text-2xl md:text-3xl"></i>
+          </a>
+        </div>
+
+        <div class="md:hidden flex items-center space-x-4">
+          <button id="mobile-theme-toggle" class="text-gray-400 focus:outline-none text-2xl">
+            <i id="mobile-theme-icon" class="fa-solid fa-moon"></i>
+          </button>
+          <button id="mobile-menu-button" class="text-white focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden bg-gray-800 text-white py-4 mt-2 dark:bg-gray-900">
+        <nav class="flex flex-col items-center space-y-4 px-4">
+          <a href="./Home-page.html" class="hover:text-gray-300 w-full text-center py-2">Home</a>
+          <a href="#" class="hover:text-gray-300 w-full text-center py-2">Shop</a>
+          <a href="#" class="hover:text-gray-300 w-full text-center py-2">About Us</a>
+          <a href="#" class="hover:text-gray-300 w-full text-center py-2">Contact</a>
+          <a href="login.html" class="hover:text-gray-300 w-full text-center py-2">
+            <i class="fas fa-user-circle text-2xl pt-4"></i> Profile
+          </a>
+        </nav>
+      </div>
+    </header>
+    <main>
+    <!-- Main Content Area -->
+    <div class="container mx-auto p-4 py-8 md:py-12">
+        <!-- Back Button -->
+        <div class="mb-6">
+          <button class="px-6 py-2 rounded-full bg-indigo-700 text-white hover:bg-indigo-800 transition duration-300 dark:bg-indigo-600 dark:hover:bg-indigo-700" ><i class="fas fa-arrow-left mr-2"></i><a href="./Home-page.html">Back</a></button>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Left Column: Car Image & Thumbnails -->
+            <div class="lg:w-1/2">
+                <h1 class="text-3xl md:text-4xl font-bold mb-2 dark:text-white">BMW</h1>
+                <p class="text-2xl font-semibold text-gray-700 mb-6 dark:text-white">$25<span class="text-lg text-gray-500 dark:text-white">/day</span></p>
+
+                <!-- Main Car Image -->
+                <div class="mb-4" data-aos="zoom-in-down">
+                    <img src="./image-ford/01.jpg" alt="Mercedes AMG GT" class="w-full h-auto rounded-lg shadow-lg object-cover">
+                </div>
+
+                <!-- Thumbnail Images Grid -->
+                <div class="grid grid-cols-3 md:grid-cols-3 gap-4" data-aos="zoom-in">
+                    <!-- <img src="./images-BMW/02.jpg" alt="Thumbnail 1" class="w-full h-auto rounded-lg shadow-md object-cover cursor-pointer hover:scale-105 transition-transform duration-200">
+                    <img src="./images-BMW/03.jpg" alt="Thumbnail 2" class="w-full h-auto rounded-lg shadow-md object-cover cursor-pointer hover:scale-105 transition-transform duration-200">
+                    <img src="./images-BMW/008.jpg" alt="Thumbnail 3" class="w-full h-auto rounded-lg shadow-md object-cover cursor-pointer hover:scale-105 transition-transform duration-200"> -->
+                    <img src="./image-ford/1.jpg" alt="Thumbnail 4" class="w-full h-auto rounded-lg shadow-md object-cover cursor-pointer hover:scale-105 transition-transform duration-200">
+                    <img src="./image-ford/2.jpg" alt="Thumbnail 5" class="w-full h-auto rounded-lg shadow-md object-cover cursor-pointer hover:scale-105 transition-transform duration-200">
+                    <img src="./image-ford/4.jpg" alt="Thumbnail 6" class="w-full h-auto rounded-lg shadow-md object-cover cursor-pointer hover:scale-105 transition-transform duration-200">
+                </div>
+            </div>
+
+            <!-- Right Column: Specifications & Equipment -->
+            <div class="lg:w-1/2" data-aos="zoom-in-left">
+                <!-- Technical Specification -->
+                <h2 class="text-3xl font-bold sm:mt-2 md:mt-24 dark:text-white">Technical Specification</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-6">
+                    <!-- Spec Item 1 -->
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <i class="fas fa-cogs text-3xl text-purple-600 mb-2"></i>
+                        <span class="font-medium">Gear Box</span>
+                        <span class="text-sm text-gray-600 ">Automat</span>
+                    </div>
+                    <!-- Spec Item 2 -->
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <i class="fas fa-gas-pump text-3xl text-purple-600 mb-2"></i>
+                        <span class="font-medium ">Fuel</span>
+                        <span class="text-sm text-gray-600 ">Petrol</span>
+                    </div>
+                    <!-- Spec Item 3 -->
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <i class="fas fa-door-open text-3xl text-purple-600 mb-2"></i>
+                        <span class="font-medium">Doors</span>
+                        <span class="text-sm text-gray-600">2</span>
+                    </div>
+                    <!-- Spec Item 4 -->
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <i class="fas fa-wind text-3xl text-purple-600 mb-2"></i>
+                        <span class="font-medium">Air Conditioner</span>
+                        <span class="text-sm text-gray-600">Yes</span>
+                    </div>
+                    <!-- Spec Item 5 -->
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <i class="fas fa-chair text-3xl text-purple-600 mb-2"></i>
+                        <span class="font-medium ">Seats</span>
+                        <span class="text-sm text-gray-600 ">2</span>
+                    </div>
+                    <!-- Spec Item 6 -->
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <i class="fas fa-road text-3xl text-purple-600 mb-2"></i>
+                        <span class="font-medium ">Distance</span>
+                        <span class="text-sm text-gray-600">500</span>
+                    </div>
+                </div>
+
+                <!-- Rent a Car Button -->
+                <button class="w-full bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-xl transition-colors self-center text-xl mt-5">
+                    Rent a car
+                </button>
+                <!-- <button class="bg-purple-700 text-white py-3 px-6 rounded-md text-xl font-semibold hover:bg-purple-800 transition-colors self-center">Rent a car</button> -->
+
+                <!-- Car Equipment -->
+                <h2 class="text-2xl font-bold mt-4 dark:text-white">Car Equipment</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3">
+                    <div class="flex items-center dark:text-white">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i> ABS
+                    </div>
+                    <div class="flex items-center dark:text-white">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i> ABS
+                    </div>
+                    <div class="flex items-center dark:text-white">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i> Air Bags
+                    </div>
+                    <div class="flex items-center dark:text-white">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i> Air Bags
+                    </div>
+                    <div class="flex items-center dark:text-white">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i> Cruise Control
+                    </div>
+                    <div class="flex items-center dark:text-white">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i> Air Conditioner
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 dark:bg-gray-950">
+      <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="text-center md:text-left">
+          <div class="flex items-center justify-center md:justify-start mb-4">
+            <img src="./image/Logo.png" alt="AutoFlux Logo" class="h-36 w-36 rounded-full mr-2" />
+            <span class="text-md font-bold">AUTOFLUX</span>
+          </div>
+          <p class="text-gray-400 text-sm break-words">
+            Your premier destination for buying and selling cars online. Connecting you with your dream car.
+          </p>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#" class="hover:text-gray-300">Home</a></li>
+            <li><a href="#" class="hover:text-gray-300">Shop</a></li>
+            <li><a href="#" class="hover:text-gray-300">About</a></li>
+            <li><a href="#" class="hover:text-gray-300">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="font-semibold text-lg text-white mb-4">Our Brand</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="./detail-BMW.html" class="hover:text-gray-300">BMW M</a></li>
+            <li><a href="./detail-Jeep.html" class="hover:text-gray-300">Jeep</a></li>
+            <li><a href="./detail-Mezerdes.html" class="hover:text-gray-300">Mercedes-AMG</a></li>
+            <li><a href="./detail-Ford.html" class="hover:text-gray-300">Ford</a></li>
+          </ul>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="font-semibold text-lg text-white mb-4">Contact Us</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><i class="fas fa-envelope mr-1"></i>AutoFlux@gmail.com</li>
+            <li><i class="fas fa-phone mr-1"></i> +855 815 287 14</li>
+            <li><i class="fas fa-map-marker-alt mr-1"></i> AutoFlux.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
+        Copyright 2015 All Right Reserved. Made in Logger.
+      </div>
+      </main>
+    </footer>
+    <script src="../node_modules/preline/dist/preline.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      const body = document.body;
+      const themeBtn = document.getElementById("theme-toggle");
+      const mobileThemeBtn = document.getElementById("mobile-theme-toggle");
+      const themeIcon = document.getElementById("theme-icon");
+      const mobileThemeIcon = document.getElementById("mobile-theme-icon");
+
+      let isDark = localStorage.getItem("theme") === "dark" || (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+      function setTheme(dark) {
+        if (dark) {
+          body.classList.add("dark");
+          themeIcon.className = "fa-solid fa-sun";
+          mobileThemeIcon.className = "fa-solid fa-sun";
+          localStorage.setItem("theme", "dark");
+        } else {
+          body.classList.remove("dark");
+          themeIcon.className = "fa-solid fa-moon";
+          mobileThemeIcon.className = "fa-solid fa-moon";
+          localStorage.setItem("theme", "light");
+        }
+      }
+
+      function toggleTheme() {
+        const darkMode = !body.classList.contains("dark");
+        setTheme(darkMode);
+      }
+
+      themeBtn.addEventListener("click", toggleTheme);
+      mobileThemeBtn.addEventListener("click", toggleTheme);
+      setTheme(isDark);
+
+                  AOS.init({
+        duration: 2000, // global duration for animations
+        once: true,    // whether animation should happen only once - default
+        mirror: false, // whether elements should animate out while scrolling past them
+      });
+
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      const fadeInSections = document.querySelectorAll(".fade-in-section");
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      fadeInSections.forEach((section) => observer.observe(section));
+    </script>
+</html>

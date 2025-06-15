@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoFlux</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="shortcut icon" href="./image/Logo.png" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="output.css" />
+    <style>
+      /* Custom CSS for background image and text shadow */
+      .hero-background {
+        background-image: url("./images-Jeep/1.jpg"); /* Placeholder image for a car theme */
+        background-size: cover;
+      }
+      /* Fallback for the big02.webp image. If you have the image, replace the above URL */
+      /*
+        .hero-background {
+            background-image: url("./image/big02.webp");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        */
+
+      .text-shadow-strong {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        darkMode: "class", // Enable dark mode using 'class' strategy
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"], // Set Inter as the default sans-serif font
+            },
+            colors: {
+              // Define any custom colors here if needed
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="overflow-x-hidden overflow-y-auto font-sans bg-gray-50 dark:bg-gray-900 transition-colors duration-300"
+  >
+    <!-- Header Section -->
+    <header class="bg-gray-800 text-white p-4 shadow-md dark:bg-gray-950">
+      <div class="container mx-auto flex justify-between items-center px-4">
+        <!-- Logo and Site Title -->
+        <div class="flex items-center">
+          <!-- Placeholder for Logo.png. If you have the image, replace the src attribute. -->
+          <img
+            src="./image/Logo.png"
+            alt="AutoFlux Logo"
+            class="h-12 w-12 md:h-16 md:w-16 rounded-full mr-2 md:mr-4"
+          />
+          <!--
+                <img src="./Logo.png" alt="AutoFlux Logo" class="h-12 w-12 md:h-16 md:w-16 rounded-full mr-2 md:mr-4" />
+                -->
+          <span class="text-xl md:text-2xl font-bold tracking-wide"
+            >AUTOFLUX</span
+          >
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-6 lg:space-x-8 text-lg">
+          <a
+            href="./Home-page.html"
+            class="hover:text-gray-300 transition-colors duration-200"
+            >Home</a
+          >
+          <a
+            href="./shop.html"
+            class="hover:text-gray-300 transition-colors duration-200"
+            >Shop</a
+          >
+          <a
+            href="./about-us.html"
+            class="hover:text-gray-300 transition-colors duration-200"
+            >About Us</a
+          >
+          <a
+            href="./contact-us.html"
+            class="hover:text-gray-300 transition-colors duration-200"
+            >Contact</a
+          >
+        </nav>
+
+        <!-- Desktop Theme Toggle and Profile Icon -->
+        <div class="hidden md:flex items-center space-x-4">
+          <button
+            id="theme-toggle"
+            class="text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-600 dark:focus:ring-gray-700 rounded-lg p-2.5 transition-colors duration-200"
+          >
+            <i id="theme-icon" class="fa-solid fa-moon text-xl"></i>
+          </button>
+          <a
+            href="login.html"
+            class="text-gray-400 hover:text-white transition-colors duration-200"
+            aria-label="User Profile"
+          >
+            <i class="fas fa-user-circle text-2xl md:text-3xl"></i>
+          </a>
+        </div>
+
+        <!-- Mobile Theme Toggle and Menu Button -->
+        <div class="md:hidden flex items-center space-x-4">
+          <button
+            id="mobile-theme-toggle"
+            class="text-gray-400 focus:outline-none text-xl"
+            aria-label="Toggle Theme"
+          >
+            <i id="mobile-theme-icon" class="fa-solid fa-moon"></i>
+          </button>
+          <button
+            id="mobile-menu-button"
+            class="text-white focus:outline-none text-xl"
+            aria-label="Open Mobile Menu"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu (hidden by default) -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-gray-800 text-white py-4 mt-2 dark:bg-gray-950"
+      >
+        <nav class="flex flex-col items-center space-y-4 px-4 text-lg">
+          <a
+            href="./Home-page.html"
+            class="hover:text-gray-300 w-full text-center py-2 transition-colors duration-200"
+            >Home</a
+          >
+          <a
+            href="#"
+            class="hover:text-gray-300 w-full text-center py-2 transition-colors duration-200"
+            >Shop</a
+          >
+          <a
+            href="#"
+            class="hover:text-gray-300 w-full text-center py-2 transition-colors duration-200"
+            >About Us</a
+          >
+          <a
+            href="#"
+            class="hover:text-gray-300 w-full text-center py-2 transition-colors duration-200"
+            >Contact</a
+          >
+          <a
+            href="login.html"
+            class="hover:text-gray-300 w-full text-center py-2 flex items-center justify-center space-x-2 transition-colors duration-200"
+          >
+            <i class="fas fa-user-circle text-2xl"></i> <span>Profile</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Contact Section -->
+      <section class="bg-gray-50 py-16 dark:bg-gray-800">
+        <div class="container mx-auto px-4 lg:px-8" data-aos="zoom-out-up">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            <!-- Get In Touch Form - Left Side -->
+            <div
+              class="bg-white p-6 md:p-8 rounded-lg shadow-xl dark:bg-gray-700 fade-in-section"
+            >
+              <h2 class="text-3xl font-bold mb-6 text-gray-800 dark:text-white">
+                Get In Touch
+              </h2>
+              <form class="space-y-5">
+                <div>
+                  <label
+                    for="full-name"
+                    class="block text-gray-700 text-sm font-semibold mb-2 dark:text-gray-300"
+                    >Full Name</label
+                  >
+                  <input
+                    type="text"
+                    id="full-name"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-colors duration-200"
+                    placeholder="Your Name"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="phone-number"
+                    class="block text-gray-700 text-sm font-semibold mb-2 dark:text-gray-300"
+                    >Phone Number</label
+                  >
+                  <input
+                    type="text"
+                    id="phone-number"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-colors duration-200"
+                    placeholder="Your Phone Number"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="email-address"
+                    class="block text-gray-700 text-sm font-semibold mb-2 dark:text-gray-300"
+                    >Email Address</label
+                  >
+                  <input
+                    type="email"
+                    id="email-address"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-colors duration-200"
+                    placeholder="Your Email Address"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="message"
+                    class="block text-gray-700 text-sm font-semibold mb-2 dark:text-gray-300"
+                    >Message</label
+                  >
+                  <textarea
+                    id="message"
+                    rows="5"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-colors duration-200"
+                    placeholder="Type your message here..."
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="w-full bg-blue-600 text-white py-3 rounded-md font-semibold hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-700 dark:hover:bg-blue-800"
+                >
+                  Send Now
+                </button>
+              </form>
+            </div>
+
+            <!-- REVISED Talk To Us Card - Right Side -->
+            <div
+              class="bg-white px-6 pt-6 pb-2 md:px-8 md:pt-8 md:pb-4 rounded-lg shadow-xl dark:bg-gray-700 fade-in-section"
+              data-aos="zoom-out-down"
+            >
+              <h2
+                class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center md:text-left"
+              >
+                Get in Touch
+              </h2>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-8">
+                <!-- Email Section -->
+                <div class="flex items-center space-x-4 mb-4 mt-4">
+                  <div
+                    class="flex-shrink-0 bg-blue-500 p-3 rounded-full text-white text-xl shadow-md"
+                  >
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div>
+                    <h3
+                      class="text-lg font-semibold text-gray-700 dark:text-gray-300"
+                    >
+                      Email Us
+                    </h3>
+                    <a
+                      href="mailto:autoflux@gmail.com"
+                      class="text-blue-600 dark:text-blue-400 text-base hover:underline break-all"
+                      >autoflux@gmail.com</a
+                    >
+                  </div>
+                </div>
+
+                <!-- Phone Number Section (Cambodia) -->
+                <div class="flex items-center space-x-4 mb-4 mt-4">
+                  <div
+                    class="flex-shrink-0 bg-green-500 p-3 rounded-full text-white text-xl shadow-md"
+                  >
+                    <i class="fas fa-phone-alt"></i>
+                  </div>
+                  <div>
+                    <h3
+                      class="text-lg font-semibold text-gray-700 dark:text-gray-300"
+                    >
+                      Call Us (Cambodia)
+                    </h3>
+                    <a
+                      href="tel:+85581528714"
+                      class="text-gray-600 dark:text-gray-400 text-base hover:underline"
+                      >+855 815 287 14</a
+                    >
+                  </div>
+                </div>
+
+                <!-- Address Section -->
+                <div
+                  class="flex items-center space-x-4 col-span-1 md:col-span-2"
+                >
+                  <div
+                    class="flex-shrink-0 bg-purple-500 p-3 rounded-full text-white text-xl shadow-md"
+                  >
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div>
+                    <h3
+                      class="text-lg font-semibold text-gray-700 dark:text-gray-300"
+                    >
+                      Our Address (Australia)
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-base">
+                      123 Queensberry Street, North Melbourne VIC 3051 Australia
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Follow Us Section -->
+                <div class="col-span-1 md:col-span-2 mt-6 text-center">
+                  <h3
+                    class="text-xl font-bold text-gray-800 dark:text-white mb-4"
+                  >
+                    Connect With Us!
+                  </h3>
+                  <!-- Image added below -->
+                  <img
+                    src="./image/person.jpg"
+                    alt="Connect with us"
+                    class="mx-auto mb-4 rounded-lg shadow-md max-w-full h-auto"
+                  />
+                  <!-- End of Image -->
+                  <div class="flex justify-center space-x-6 text-3xl">
+                    <a
+                      href="#"
+                      class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-transform duration-300 hover:scale-110"
+                      aria-label="Facebook"
+                    >
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a
+                      href="#"
+                      class="text-blue-400 hover:text-blue-500 dark:text-blue-300 dark:hover:text-blue-200 transition-transform duration-300 hover:scale-110"
+                      aria-label="Twitter"
+                    >
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                    <a
+                      href="#"
+                      class="text-pink-600 hover:text-pink-700 dark:text-pink-400 dark:hover:text-pink-300 transition-transform duration-300 hover:scale-110"
+                      aria-label="Instagram"
+                    >
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                    <!-- You can add more social media icons here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Visit Our Office Section -->
+      <section
+        class="py-16 bg-gray-100 dark:bg-gray-900 fade-in-section"
+        data-aos="zoom-in"
+      >
+        <div class="container mx-auto px-4 lg:px-8">
+          <div
+            class="bg-white p-6 md:p-8 rounded-lg shadow-xl dark:bg-gray-700"
+          >
+            <h2 class="text-3xl font-bold mb-6 text-gray-800 dark:text-white">
+              Visit Our Office
+            </h2>
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center"
+            >
+              <!-- Office Details and Hours -->
+              <div>
+                <p class="text-gray-700 text-lg mb-4 dark:text-gray-300">
+                  Contact our Sales Department for any inquiries:
+                </p>
+                <p
+                  class="text-blue-600 font-extrabold text-2xl mb-6 dark:text-blue-400"
+                >
+                  + 70 986 039 999
+                </p>
+                <div class="space-y-2 text-gray-700 dark:text-gray-300 text-md">
+                  <p>
+                    <i class="far fa-clock mr-2 text-blue-500"></i>Monday -
+                    Friday: 9:00 AM - 6:00 PM
+                  </p>
+                  <p>
+                    <i class="far fa-clock mr-2 text-blue-500"></i>Saturday:
+                    9:00 AM - 3:00 PM
+                  </p>
+                  <p>
+                    <i class="far fa-calendar-times mr-2 text-red-500"></i
+                    >Sunday: Closed
+                  </p>
+                </div>
+              </div>
+              <!-- Google Map Embed -->
+              <div>
+                <div
+                  class="h-80 md:h-96 rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-600"
+                >
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345091727!2d144.95373531531636!3d-37.81720517975176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2s123%20Queensberry%20St%2C%20North%20Melbourne%20VIC%203051%2C%20Australia!5e0!3m2!1sen!2skh!4v1678890000000!5m2!1sen!2skh"
+                    width="100%"
+                    height="100%"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hero Section -->
+      <section
+        class="hero-background relative h-screen flex items-center justify-center text-white bg-center bg-no-repeat w-full rounded-xl shadow-lg"
+        data-aos="fade-up"
+      >
+        <!-- Overlay for better text readability -->
+        <div class="absolute inset-0 bg-black opacity-60 rounded-xl"></div>
+        <div class="container mx-auto px-4 text-center z-10">
+          <h2
+            class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-shadow-lg leading-tight"
+          >
+            We Make Finding The Right Car Simple
+          </h2>
+          <a
+            href="#"
+            class="inline-block bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105 shadow-xl"
+          >
+            Discover Your Dream Car
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-12 dark:bg-gray-950">
+      <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="text-center md:text-left">
+          <div
+            class="flex flex-col items-center justify-center sm:flex-row sm:justify-start md:flex-col lg:flex-row lg:justify-start mb-4"
+          >
+            <img
+              src="./image/Logo.png"
+              alt="AutoFlux Logo"
+              class="h-36 w-36 rounded-full mb-2 sm:mb-0 sm:mr-2 md:mb-2 md:mr-0 lg:mr-2 lg:mb-0"
+            />
+            <span class="text-md font-bold">AUTOFLUX</span>
+          </div>
+          <p class="text-gray-400 text-sm break-words">
+            Your premier destination for buying and selling cars online.
+            Connecting you with your dream car.
+          </p>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li>
+              <a href="./Home-page.html" class="hover:text-gray-300">Home</a>
+            </li>
+            <li><a href="./shop.html" class="hover:text-gray-300">Shop</a></li>
+            <li>
+              <a href="./about-us.html" class="hover:text-gray-300">About</a>
+            </li>
+            <li>
+              <a href="./contact-us.html" class="hover:text-gray-300"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="font-semibold text-lg text-white mb-4">Our Brand</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li>
+              <a href="./detail-BMW.html" class="hover:text-gray-300">BMW M</a>
+            </li>
+            <li>
+              <a href="./detail-Jeep.html" class="hover:text-gray-300">Jeep</a>
+            </li>
+            <li>
+              <a href="./detail-Mezerdes.html" class="hover:text-gray-300"
+                >Mercedes-AMG</a
+              >
+            </li>
+            <li>
+              <a href="./detail-Ford.html" class="hover:text-gray-300">Ford</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="font-semibold text-lg text-white mb-4">Contact Us</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><i class="fas fa-envelope mr-1"></i>AutoFlux@gmail.com</li>
+            <li><i class="fas fa-phone mr-1"></i> +855 81 528 714</li>
+            <li><i class="fas fa-map-marker-alt mr-1"></i> AutoFlux.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm"
+      >
+        Copyright 2015 All Right Reserved. Made in Logger.
+      </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // DOM element references
+      const body = document.body;
+      const themeBtn = document.getElementById("theme-toggle");
+      const mobileThemeBtn = document.getElementById("mobile-theme-toggle");
+      const themeIcon = document.getElementById("theme-icon");
+      const mobileThemeIcon = document.getElementById("mobile-theme-icon");
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      // Determine initial theme based on localStorage or system preference
+      let isDark =
+        localStorage.getItem("theme") === "dark" ||
+        (!localStorage.getItem("theme") &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+      /**
+       * Sets the theme of the page (dark or light).
+       * @param {boolean} dark - True for dark mode, false for light mode.
+       */
+      function setTheme(dark) {
+        if (dark) {
+          body.classList.add("dark");
+          themeIcon.classList.replace("fa-moon", "fa-sun"); // Change icon to sun for dark mode
+          mobileThemeIcon.classList.replace("fa-moon", "fa-sun"); // Change icon for mobile
+          localStorage.setItem("theme", "dark"); // Store preference in local storage
+        } else {
+          body.classList.remove("dark");
+          themeIcon.classList.replace("fa-sun", "fa-moon"); // Change icon to moon for light mode
+          mobileThemeIcon.classList.replace("fa-sun", "fa-moon"); // Change icon for mobile
+          localStorage.setItem("theme", "light"); // Store preference in local storage
+        }
+      }
+
+      /**
+       * Toggles the current theme between dark and light.
+       */
+      function toggleTheme() {
+        const darkMode = !body.classList.contains("dark"); // Check current theme
+        setTheme(darkMode); // Apply the new theme
+      }
+
+      // Apply the initial theme when the page loads
+      setTheme(isDark);
+      AOS.init({
+        duration: 1500, // global duration for animations
+        once: true, // whether animation should happen only once - default
+        mirror: false, // whether elements should animate out while scrolling past them
+      });
+      // Event listeners for theme toggles
+      themeBtn.addEventListener("click", toggleTheme);
+      mobileThemeBtn.addEventListener("click", toggleTheme);
+
+      // Event listener for mobile menu button
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden"); // Toggle visibility of mobile menu
+      });
+
+      // Intersection Observer for fade-in animations on scroll
+      const fadeInSections = document.querySelectorAll(".fade-in-section");
+
+      const observerOptions = {
+        root: null, // Observe changes in the viewport
+        rootMargin: "0px", // No margin around the root
+        threshold: 0.1, // Trigger when 10% of the element is visible
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible"); // Add class to trigger animation
+            observer.unobserve(entry.target); // Stop observing once visible
+          }
+        });
+      }, observerOptions);
+
+      // Observe all fade-in sections
+      fadeInSections.forEach((section) => {
+        observer.observe(section);
+      });
+    </script>
+  </body>
+</html>

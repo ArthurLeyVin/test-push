@@ -1,0 +1,3776 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoFlux</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        darkMode: "class", // Enable dark mode based on the 'dark' class on the body
+        theme: {
+          extend: {
+            colors: {
+              // Define custom dark mode colors if needed
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Inter Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="shortcut icon" href="./image/Logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="output.css" />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f0f2f5; /* Light gray background, slightly off-white */
+      }
+      body.dark {
+        background-color: #1a202c; /* Dark background for dark mode */
+      }
+      .hero-background {
+        background-image: url("./image-ford/01.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      /* Custom styles for the circular brand icons within "Browse by Type" */
+      .brand-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%; /* Makes the background circular */
+        background-color: #4f46e5; /* A shade of indigo, matching the image */
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 1.25rem; /* text-xl */
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      }
+      .brand-icon:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+      /* Custom gradient button style */
+      .btn-gradient {
+        background-image: linear-gradient(
+          to right,
+          #6366f1,
+          #8b5cf6
+        ); /* From indigo-500 to purple-500 */
+        border: none;
+        transition: all 0.3s ease-in-out;
+      }
+      .btn-gradient:hover {
+        background-image: linear-gradient(
+          to right,
+          #4f46e5,
+          #7c3aed
+        ); /* Slightly darker on hover */
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+      /* Custom card shadow for consistency with the new design */
+      .card-shadow {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+      .card-shadow:hover {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+      .text-shadow-strong {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      }
+    </style>
+  </head>
+  <body class="overflow-x-hidden overflow-y-auto">
+    <!-- Navbar Section -->
+    <header
+      class="bg-gray-800 text-white p-4 shadow-md dark:bg-gray-900 sticky top-0 z-50"
+    >
+      <div
+        class="container mx-auto flex justify-between items-center px-4 md:px-0"
+      >
+        <div class="flex items-center">
+          <img
+            src="./image/Logo.png"
+            alt="AutoFlux Logo"
+            class="h-16 w-16 md:h-20 md:w-20 rounded-full mr-2"
+          />
+          <!-- <span class="text-md font-bold">AUTOFLUX</span> -->
+        </div>
+
+        <nav class="hidden md:flex space-x-6">
+          <a href="./Home-page.html" class="hover:text-gray-300">Home</a>
+          <a href="./shop.html" class="hover:text-gray-300">Shop</a>
+          <a href="./about-us.html" class="hover:text-gray-300">About Us</a>
+          <a href="./contact-us.html" class="hover:text-gray-300">Contact</a>
+        </nav>
+
+        <div class="hidden md:flex items-center space-x-4">
+          <button
+            id="theme-toggle"
+            class="text-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-2xl md:text-2xl p-2.5"
+          >
+            <i id="theme-icon" class="fa-solid fa-moon"></i>
+          </button>
+          <a
+            href="login.html"
+            class="text-white hover:text-gray-300 cursor-pointer"
+          >
+            <i class="fas fa-user-circle text-2xl md:text-3xl"></i>
+          </a>
+        </div>
+
+        <div class="md:hidden flex items-center space-x-4">
+          <button
+            id="mobile-theme-toggle"
+            class="text-gray-400 focus:outline-none text-2xl"
+          >
+            <i id="mobile-theme-icon" class="fa-solid fa-moon"></i>
+          </button>
+          <button id="mobile-menu-button" class="text-white focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-gray-800 text-white py-4 mt-2 dark:bg-gray-900"
+      >
+        <nav class="flex flex-col items-center space-y-4 px-4">
+          <a
+            href="./Home-page.html"
+            class="hover:text-gray-300 w-full text-center py-2"
+            >Home</a
+          >
+          <a
+            href="./shop.html"
+            class="hover:text-gray-300 w-full text-center py-2"
+            >Shop</a
+          >
+          <a
+            href="./about-us.html"
+            class="hover:text-gray-300 w-full text-center py-2"
+            >About Us</a
+          >
+          <a
+            href="./contact-us.html"
+            class="hover:text-gray-300 w-full text-center py-2"
+            >Contact</a
+          >
+          <a
+            href="login.html"
+            class="hover:text-gray-300 w-full text-center py-2"
+          >
+            <i class="fas fa-user-circle text-2xl pt-4"></i> Profile
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      class="hero-background bg-gray-700 text-white py-20 px-4 md:py-32 rounded-b-xl shadow-lg flex items-center justify-center text-center"
+    >
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl md:text-5xl font-bold mb-4">Find Your Dream Car</h1>
+        <p class="text-xl md:text-3xl font-semibold mb-8">$35.000</p>
+        <button
+          class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105"
+        >
+          Browse All Cars
+        </button>
+      </div>
+    </section>
+
+    <main class="container mx-auto px-4 py-8">
+      <!-- Browse by Type Section -->
+      <div class="flex justify-center">
+        <h2
+          class="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center dark:text-white"
+        >
+          Browse by Type
+        </h2>
+      </div>
+      <section
+        class="flex justify-center p-4 bg-white rounded-xl shadow-md space-x-30 dark:bg-gray-700"
+        data-aos="fade-down"
+      >
+        <div class="flex flex-col items-center p-4">
+          <img
+            src="./image/BMW.svg"
+            alt="BMW Logo"
+            class="h-12 w-12 object-contain"
+          />
+        </div>
+
+        <div class="flex flex-col items-center p-4">
+          <img
+            src="./image/Jeep_logo.svg"
+            alt="Jeep Logo"
+            class="h-12 w-24 object-contain dark:hidden"
+          />
+          <img
+            src="./image/jeep-white.webp"
+            alt="Jeep Logo White"
+            class="h-12 w-24 object-contain hidden dark:block"
+          />
+        </div>
+
+        <div class="flex flex-col items-center p-4">
+          <img
+            src="./image/Mercedes-logo.png"
+            alt="Mercedes Logo"
+            class="h-12 w-12 object-contain"
+          />
+        </div>
+
+        <div class="flex flex-col items-center p-4">
+          <img
+            src="./image/logo-ford.png"
+            alt="Ford Logo"
+            class="h-12 w-24 object-contain"
+          />
+        </div>
+      </section>
+
+      <!-- Explore All Vehicles Section -->
+      <section class="my-12">
+        <h2
+          class="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center md:text-left dark:text-white"
+        >
+          Explore All Vehicles
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Car Card Example (repeated to fill the layout as per image) -->
+          <!-- Card 1 -->
+          <div
+            class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-down"
+          >
+            <!-- Image Section -->
+            <div class="relative">
+              <img
+                src="./images-BMW/1.jpg"
+                onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                alt="Ford Explorer 2023"
+                class="w-full h-48 object-cover rounded-t-xl"
+              />
+              <!-- Great Price Badge -->
+              <span
+                class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+              >
+                Great Price
+              </span>
+              <!-- Bookmark Icon -->
+              <button
+                class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-5">
+              <h2
+                class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+              >
+                This is the new £160k BMW M4 GT4 racing car
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                3.0L Twin-Turbo Inline-6
+              </p>
+
+              <!-- Specifications Grid -->
+              <div class="grid grid-cols-3 gap-y-4 mb-6">
+                <!-- Miles -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >2000 Miles</span
+                  >
+                </div>
+                <!-- Fuel Type -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                    >
+                      <line x1="3" x2="15" y1="22" y2="22" />
+                      <line x1="4" x2="14" y1="9" y2="9" />
+                      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                      <path
+                        d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Petrol</span
+                  >
+                </div>
+                <!-- Transmission -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                    >
+                      <path
+                        d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                      />
+                      <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                      <path d="M21 21v-2h-4" />
+                      <path d="M3 5h4V3" />
+                      <path
+                        d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Racing Sequential</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+              >
+                <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                  >$270,000</span
+                >
+                <a
+                  href="./detail-BMW.html"
+                  class="block w-fit bg-pink-500 text-white font-semibold rounded-full px-3 py-2 flex items-center space-x-2 transition duration-200 ease-in-out hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+                >
+                  <span>Buy now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="w-6 h-6 text-white fill-current"
+                  >
+                    <path
+                      d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div
+            class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-down"
+          >
+            <!-- Image Section -->
+            <div class="relative">
+              <img
+                src="./images-BMW/1.jpg"
+                onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                alt="Ford Explorer 2023"
+                class="w-full h-48 object-cover rounded-t-xl"
+              />
+              <!-- Great Price Badge -->
+              <span
+                class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+              >
+                Great Price
+              </span>
+              <!-- Bookmark Icon -->
+              <button
+                class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-5">
+              <h2
+                class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+              >
+                This is the new £160k BMW M4 GT4 racing car
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                3.0L Twin-Turbo Inline-6
+              </p>
+
+              <!-- Specifications Grid -->
+              <div class="grid grid-cols-3 gap-y-4 mb-6">
+                <!-- Miles -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >2000 Miles</span
+                  >
+                </div>
+                <!-- Fuel Type -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                    >
+                      <line x1="3" x2="15" y1="22" y2="22" />
+                      <line x1="4" x2="14" y1="9" y2="9" />
+                      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                      <path
+                        d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Petrol</span
+                  >
+                </div>
+                <!-- Transmission -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                    >
+                      <path
+                        d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                      />
+                      <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                      <path d="M21 21v-2h-4" />
+                      <path d="M3 5h4V3" />
+                      <path
+                        d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Racing Sequential</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+              >
+                <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                  >$270,000</span
+                >
+                <a
+                  href="./detail-BMW.html"
+                  class="block w-fit bg-pink-500 text-white font-semibold rounded-full px-3 py-2 flex items-center space-x-2 transition duration-200 ease-in-out hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+                >
+                  <span>Buy now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="w-6 h-6 text-white fill-current"
+                  >
+                    <path
+                      d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div
+            class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-down"
+          >
+            <!-- Image Section -->
+            <div class="relative">
+              <img
+                src="./images-BMW/1.jpg"
+                onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                alt="Ford Explorer 2023"
+                class="w-full h-48 object-cover rounded-t-xl"
+              />
+              <!-- Great Price Badge -->
+              <span
+                class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+              >
+                Great Price
+              </span>
+              <!-- Bookmark Icon -->
+              <button
+                class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-5">
+              <h2
+                class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+              >
+                This is the new £160k BMW M4 GT4 racing car
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                3.0L Twin-Turbo Inline-6
+              </p>
+
+              <!-- Specifications Grid -->
+              <div class="grid grid-cols-3 gap-y-4 mb-6">
+                <!-- Miles -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >2000 Miles</span
+                  >
+                </div>
+                <!-- Fuel Type -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                    >
+                      <line x1="3" x2="15" y1="22" y2="22" />
+                      <line x1="4" x2="14" y1="9" y2="9" />
+                      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                      <path
+                        d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Petrol</span
+                  >
+                </div>
+                <!-- Transmission -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                    >
+                      <path
+                        d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                      />
+                      <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                      <path d="M21 21v-2h-4" />
+                      <path d="M3 5h4V3" />
+                      <path
+                        d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Racing Sequential</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+              >
+                <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                  >$270,000</span
+                >
+                <a
+                  href="./detail-BMW.html"
+                  class="block w-fit bg-pink-500 text-white font-semibold rounded-full px-3 py-2 flex items-center space-x-2 transition duration-200 ease-in-out hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+                >
+                  <span>Buy now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="w-6 h-6 text-white fill-current"
+                  >
+                    <path
+                      d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div
+            class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-down"
+          >
+            <!-- Image Section -->
+            <div class="relative">
+              <img
+                src="./images-BMW/1.jpg"
+                onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                alt="Ford Explorer 2023"
+                class="w-full h-48 object-cover rounded-t-xl"
+              />
+              <!-- Great Price Badge -->
+              <span
+                class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+              >
+                Great Price
+              </span>
+              <!-- Bookmark Icon -->
+              <button
+                class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-5">
+              <h2
+                class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+              >
+                This is the new £160k BMW M4 GT4 racing car
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                3.0L Twin-Turbo Inline-6
+              </p>
+
+              <!-- Specifications Grid -->
+              <div class="grid grid-cols-3 gap-y-4 mb-6">
+                <!-- Miles -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >2000 Miles</span
+                  >
+                </div>
+                <!-- Fuel Type -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                    >
+                      <line x1="3" x2="15" y1="22" y2="22" />
+                      <line x1="4" x2="14" y1="9" y2="9" />
+                      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                      <path
+                        d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Petrol</span
+                  >
+                </div>
+                <!-- Transmission -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                    >
+                      <path
+                        d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                      />
+                      <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                      <path d="M21 21v-2h-4" />
+                      <path d="M3 5h4V3" />
+                      <path
+                        d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Racing Sequential</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+              >
+                <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                  >$270,000</span
+                >
+                <a
+                  href="./detail-BMW.html"
+                  class="block w-fit bg-pink-500 text-white font-semibold rounded-full px-3 py-2 flex items-center space-x-2 transition duration-200 ease-in-out hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+                >
+                  <span>Buy now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="w-6 h-6 text-white fill-current"
+                  >
+                    <path
+                      d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 5 -->
+          <div
+            class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-up"
+          >
+            <!-- Image Section -->
+            <div class="relative">
+              <img
+                src="./images-BMW/1.jpg"
+                onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                alt="Ford Explorer 2023"
+                class="w-full h-48 object-cover rounded-t-xl"
+              />
+              <!-- Great Price Badge -->
+              <span
+                class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+              >
+                Great Price
+              </span>
+              <!-- Bookmark Icon -->
+              <button
+                class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-5">
+              <h2
+                class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+              >
+                This is the new £160k BMW M4 GT4 racing car
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                3.0L Twin-Turbo Inline-6
+              </p>
+
+              <!-- Specifications Grid -->
+              <div class="grid grid-cols-3 gap-y-4 mb-6">
+                <!-- Miles -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >2000 Miles</span
+                  >
+                </div>
+                <!-- Fuel Type -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                    >
+                      <line x1="3" x2="15" y1="22" y2="22" />
+                      <line x1="4" x2="14" y1="9" y2="9" />
+                      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                      <path
+                        d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Petrol</span
+                  >
+                </div>
+                <!-- Transmission -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                    >
+                      <path
+                        d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                      />
+                      <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                      <path d="M21 21v-2h-4" />
+                      <path d="M3 5h4V3" />
+                      <path
+                        d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Racing Sequential</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+              >
+                <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                  >$270,000</span
+                >
+                <a
+                  href="./detail-BMW.html"
+                  class="block w-fit bg-pink-500 text-white font-semibold rounded-full px-3 py-2 flex items-center space-x-2 transition duration-200 ease-in-out hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+                >
+                  <span>Buy now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="w-6 h-6 text-white fill-current"
+                  >
+                    <path
+                      d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 6 -->
+          <div
+            class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-up"
+          >
+            <!-- Image Section -->
+            <div class="relative">
+              <img
+                src="./images-BMW/1.jpg"
+                onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                alt="Ford Explorer 2023"
+                class="w-full h-48 object-cover rounded-t-xl"
+              />
+              <!-- Great Price Badge -->
+              <span
+                class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+              >
+                Great Price
+              </span>
+              <!-- Bookmark Icon -->
+              <button
+                class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-5">
+              <h2
+                class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+              >
+                This is the new £160k BMW M4 GT4 racing car
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                3.0L Twin-Turbo Inline-6
+              </p>
+
+              <!-- Specifications Grid -->
+              <div class="grid grid-cols-3 gap-y-4 mb-6">
+                <!-- Miles -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >2000 Miles</span
+                  >
+                </div>
+                <!-- Fuel Type -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                    >
+                      <line x1="3" x2="15" y1="22" y2="22" />
+                      <line x1="4" x2="14" y1="9" y2="9" />
+                      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                      <path
+                        d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Petrol</span
+                  >
+                </div>
+                <!-- Transmission -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                    >
+                      <path
+                        d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                      />
+                      <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                      <path d="M21 21v-2h-4" />
+                      <path d="M3 5h4V3" />
+                      <path
+                        d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Racing Sequential</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+              >
+                <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                  >$270,000</span
+                >
+                <a
+                  href="./detail-BMW.html"
+                  class="block w-fit bg-pink-500 text-white font-semibold rounded-full px-3 py-2 flex items-center space-x-2 transition duration-200 ease-in-out hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+                >
+                  <span>Buy now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="w-6 h-6 text-white fill-current"
+                  >
+                    <path
+                      d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 7 -->
+          <div
+            class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-up"
+          >
+            <!-- Image Section -->
+            <div class="relative">
+              <img
+                src="./images-BMW/1.jpg"
+                onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                alt="Ford Explorer 2023"
+                class="w-full h-48 object-cover rounded-t-xl"
+              />
+              <!-- Great Price Badge -->
+              <span
+                class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+              >
+                Great Price
+              </span>
+              <!-- Bookmark Icon -->
+              <button
+                class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-5">
+              <h2
+                class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+              >
+                This is the new £160k BMW M4 GT4 racing car
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                3.0L Twin-Turbo Inline-6
+              </p>
+
+              <!-- Specifications Grid -->
+              <div class="grid grid-cols-3 gap-y-4 mb-6">
+                <!-- Miles -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >2000 Miles</span
+                  >
+                </div>
+                <!-- Fuel Type -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                    >
+                      <line x1="3" x2="15" y1="22" y2="22" />
+                      <line x1="4" x2="14" y1="9" y2="9" />
+                      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                      <path
+                        d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Petrol</span
+                  >
+                </div>
+                <!-- Transmission -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                    >
+                      <path
+                        d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                      />
+                      <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                      <path d="M21 21v-2h-4" />
+                      <path d="M3 5h4V3" />
+                      <path
+                        d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Racing Sequential</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+              >
+                <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                  >$270,000</span
+                >
+                <a
+                  href="./detail-BMW.html"
+                  class="block w-fit bg-pink-500 text-white font-semibold rounded-full px-3 py-2 flex items-center space-x-2 transition duration-200 ease-in-out hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+                >
+                  <span>Buy now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="w-6 h-6 text-white fill-current"
+                  >
+                    <path
+                      d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 8 -->
+          <div
+            class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-up"
+          >
+            <!-- Image Section -->
+            <div class="relative">
+              <img
+                src="./images-BMW/1.jpg"
+                onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                alt="Ford Explorer 2023"
+                class="w-full h-48 object-cover rounded-t-xl"
+              />
+              <!-- Great Price Badge -->
+              <span
+                class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+              >
+                Great Price
+              </span>
+              <!-- Bookmark Icon -->
+              <button
+                class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-5">
+              <h2
+                class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+              >
+                This is the new £160k BMW M4 GT4 racing car
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                3.0L Twin-Turbo Inline-6
+              </p>
+
+              <!-- Specifications Grid -->
+              <div class="grid grid-cols-3 gap-y-4 mb-6">
+                <!-- Miles -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >2000 Miles</span
+                  >
+                </div>
+                <!-- Fuel Type -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                    >
+                      <line x1="3" x2="15" y1="22" y2="22" />
+                      <line x1="4" x2="14" y1="9" y2="9" />
+                      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                      <path
+                        d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Petrol</span
+                  >
+                </div>
+                <!-- Transmission -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                    >
+                      <path
+                        d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                      />
+                      <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                      <path d="M21 21v-2h-4" />
+                      <path d="M3 5h4V3" />
+                      <path
+                        d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Racing Sequential</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+              >
+                <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                  >$270,000</span
+                >
+                <a
+                  href="./detail-BMW.html"
+                  class="block w-fit bg-pink-500 text-white font-semibold rounded-full px-3 py-2 flex items-center space-x-2 transition duration-200 ease-in-out hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+                >
+                  <span>Buy now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="w-6 h-6 text-white fill-current"
+                  >
+                    <path
+                      d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 9 -->
+          <div
+            class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-down"
+          >
+            <!-- Image Section -->
+            <div class="relative">
+              <img
+                src="./images-BMW/1.jpg"
+                onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                alt="Ford Explorer 2023"
+                class="w-full h-48 object-cover rounded-t-xl"
+              />
+              <!-- Great Price Badge -->
+              <span
+                class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+              >
+                Great Price
+              </span>
+              <!-- Bookmark Icon -->
+              <button
+                class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-5">
+              <h2
+                class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+              >
+                This is the new £160k BMW M4 GT4 racing car
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                3.0L Twin-Turbo Inline-6
+              </p>
+
+              <!-- Specifications Grid -->
+              <div class="grid grid-cols-3 gap-y-4 mb-6">
+                <!-- Miles -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >2000 Miles</span
+                  >
+                </div>
+                <!-- Fuel Type -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                    >
+                      <line x1="3" x2="15" y1="22" y2="22" />
+                      <line x1="4" x2="14" y1="9" y2="9" />
+                      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                      <path
+                        d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Petrol</span
+                  >
+                </div>
+                <!-- Transmission -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                    >
+                      <path
+                        d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                      />
+                      <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                      <path d="M21 21v-2h-4" />
+                      <path d="M3 5h4V3" />
+                      <path
+                        d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Racing Sequential</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+              >
+                <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                  >$270,000</span
+                >
+                <a
+                  href="./detail-BMW.html"
+                  class="block w-fit bg-pink-500 text-white font-semibold rounded-full px-3 py-2 flex items-center space-x-2 transition duration-200 ease-in-out hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+                >
+                  <span>Buy now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="w-6 h-6 text-white fill-current"
+                  >
+                    <path
+                      d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 10 -->
+          <div
+            class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-down"
+          >
+            <!-- Image Section -->
+            <div class="relative">
+              <img
+                src="./images-BMW/1.jpg"
+                onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                alt="Ford Explorer 2023"
+                class="w-full h-48 object-cover rounded-t-xl"
+              />
+              <!-- Great Price Badge -->
+              <span
+                class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+              >
+                Great Price
+              </span>
+              <!-- Bookmark Icon -->
+              <button
+                class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-5">
+              <h2
+                class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+              >
+                This is the new £160k BMW M4 GT4 racing car
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                3.0L Twin-Turbo Inline-6
+              </p>
+
+              <!-- Specifications Grid -->
+              <div class="grid grid-cols-3 gap-y-4 mb-6">
+                <!-- Miles -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >2000 Miles</span
+                  >
+                </div>
+                <!-- Fuel Type -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                    >
+                      <line x1="3" x2="15" y1="22" y2="22" />
+                      <line x1="4" x2="14" y1="9" y2="9" />
+                      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                      <path
+                        d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Petrol</span
+                  >
+                </div>
+                <!-- Transmission -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                    >
+                      <path
+                        d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                      />
+                      <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                      <path d="M21 21v-2h-4" />
+                      <path d="M3 5h4V3" />
+                      <path
+                        d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Racing Sequential</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+              >
+                <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                  >$270,000</span
+                >
+                <a
+                  href="./detail-BMW.html"
+                  class="block w-fit bg-pink-500 text-white font-semibold rounded-full px-3 py-2 flex items-center space-x-2 transition duration-200 ease-in-out hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+                >
+                  <span>Buy now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="w-6 h-6 text-white fill-current"
+                  >
+                    <path
+                      d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 11 -->
+          <div
+            class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-down"
+          >
+            <!-- Image Section -->
+            <div class="relative">
+              <img
+                src="./images-BMW/1.jpg"
+                onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                alt="Ford Explorer 2023"
+                class="w-full h-48 object-cover rounded-t-xl"
+              />
+              <!-- Great Price Badge -->
+              <span
+                class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+              >
+                Great Price
+              </span>
+              <!-- Bookmark Icon -->
+              <button
+                class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-5">
+              <h2
+                class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+              >
+                This is the new £160k BMW M4 GT4 racing car
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                3.0L Twin-Turbo Inline-6
+              </p>
+
+              <!-- Specifications Grid -->
+              <div class="grid grid-cols-3 gap-y-4 mb-6">
+                <!-- Miles -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >2000 Miles</span
+                  >
+                </div>
+                <!-- Fuel Type -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                    >
+                      <line x1="3" x2="15" y1="22" y2="22" />
+                      <line x1="4" x2="14" y1="9" y2="9" />
+                      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                      <path
+                        d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Petrol</span
+                  >
+                </div>
+                <!-- Transmission -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                    >
+                      <path
+                        d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                      />
+                      <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                      <path d="M21 21v-2h-4" />
+                      <path d="M3 5h4V3" />
+                      <path
+                        d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Racing Sequential</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+              >
+                <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                  >$270,000</span
+                >
+                <a
+                  href="./detail-BMW.html"
+                  class="block w-fit bg-pink-500 text-white font-semibold rounded-full px-3 py-2 flex items-center space-x-2 transition duration-200 ease-in-out hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+                >
+                  <span>Buy now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="w-6 h-6 text-white fill-current"
+                  >
+                    <path
+                      d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 12 -->
+          <div
+            class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-down"
+          >
+            <!-- Image Section -->
+            <div class="relative">
+              <img
+                src="./images-BMW/1.jpg"
+                onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                alt="Ford Explorer 2023"
+                class="w-full h-48 object-cover rounded-t-xl"
+              />
+              <!-- Great Price Badge -->
+              <span
+                class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+              >
+                Great Price
+              </span>
+              <!-- Bookmark Icon -->
+              <button
+                class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-5">
+              <h2
+                class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+              >
+                This is the new £160k BMW M4 GT4 racing car
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                3.0L Twin-Turbo Inline-6
+              </p>
+
+              <!-- Specifications Grid -->
+              <div class="grid grid-cols-3 gap-y-4 mb-6">
+                <!-- Miles -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >2000 Miles</span
+                  >
+                </div>
+                <!-- Fuel Type -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                    >
+                      <line x1="3" x2="15" y1="22" y2="22" />
+                      <line x1="4" x2="14" y1="9" y2="9" />
+                      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                      <path
+                        d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Petrol</span
+                  >
+                </div>
+                <!-- Transmission -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                    >
+                      <path
+                        d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                      />
+                      <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                      <path d="M21 21v-2h-4" />
+                      <path d="M3 5h4V3" />
+                      <path
+                        d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Racing Sequential</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+              >
+                <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                  >$270,000</span
+                >
+                <a
+                  href="./detail-BMW.html"
+                  class="block w-fit bg-pink-500 text-white font-semibold rounded-full px-3 py-2 flex items-center space-x-2 transition duration-200 ease-in-out hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+                >
+                  <span>Buy now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="w-6 h-6 text-white fill-current"
+                  >
+                    <path
+                      d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 13 -->
+          <div
+            class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-up"
+          >
+            <!-- Image Section -->
+            <div class="relative">
+              <img
+                src="./images-BMW/1.jpg"
+                onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                alt="Ford Explorer 2023"
+                class="w-full h-48 object-cover rounded-t-xl"
+              />
+              <!-- Great Price Badge -->
+              <span
+                class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+              >
+                Great Price
+              </span>
+              <!-- Bookmark Icon -->
+              <button
+                class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-5">
+              <h2
+                class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+              >
+                This is the new £160k BMW M4 GT4 racing car
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                3.0L Twin-Turbo Inline-6
+              </p>
+
+              <!-- Specifications Grid -->
+              <div class="grid grid-cols-3 gap-y-4 mb-6">
+                <!-- Miles -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >2000 Miles</span
+                  >
+                </div>
+                <!-- Fuel Type -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                    >
+                      <line x1="3" x2="15" y1="22" y2="22" />
+                      <line x1="4" x2="14" y1="9" y2="9" />
+                      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                      <path
+                        d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Petrol</span
+                  >
+                </div>
+                <!-- Transmission -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                    >
+                      <path
+                        d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                      />
+                      <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                      <path d="M21 21v-2h-4" />
+                      <path d="M3 5h4V3" />
+                      <path
+                        d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Racing Sequential</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+              >
+                <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                  >$270,000</span
+                >
+                <a
+                  href="./detail-BMW.html"
+                  class="block w-fit bg-pink-500 text-white font-semibold rounded-full px-3 py-2 flex items-center space-x-2 transition duration-200 ease-in-out hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+                >
+                  <span>Buy now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="w-6 h-6 text-white fill-current"
+                  >
+                    <path
+                      d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 14 -->
+          <div
+            class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-up"
+          >
+            <!-- Image Section -->
+            <div class="relative">
+              <img
+                src="./images-BMW/1.jpg"
+                onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                alt="Ford Explorer 2023"
+                class="w-full h-48 object-cover rounded-t-xl"
+              />
+              <!-- Great Price Badge -->
+              <span
+                class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+              >
+                Great Price
+              </span>
+              <!-- Bookmark Icon -->
+              <button
+                class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-5">
+              <h2
+                class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+              >
+                This is the new £160k BMW M4 GT4 racing car
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                3.0L Twin-Turbo Inline-6
+              </p>
+
+              <!-- Specifications Grid -->
+              <div class="grid grid-cols-3 gap-y-4 mb-6">
+                <!-- Miles -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >2000 Miles</span
+                  >
+                </div>
+                <!-- Fuel Type -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                    >
+                      <line x1="3" x2="15" y1="22" y2="22" />
+                      <line x1="4" x2="14" y1="9" y2="9" />
+                      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                      <path
+                        d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Petrol</span
+                  >
+                </div>
+                <!-- Transmission -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                    >
+                      <path
+                        d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                      />
+                      <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                      <path d="M21 21v-2h-4" />
+                      <path d="M3 5h4V3" />
+                      <path
+                        d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Racing Sequential</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+              >
+                <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                  >$270,000</span
+                >
+                <a
+                  href="./detail-BMW.html"
+                  class="block w-fit bg-pink-500 text-white font-semibold rounded-full px-3 py-2 flex items-center space-x-2 transition duration-200 ease-in-out hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+                >
+                  <span>Buy now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="w-6 h-6 text-white fill-current"
+                  >
+                    <path
+                      d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 15 -->
+          <div
+            class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-up"
+          >
+            <!-- Image Section -->
+            <div class="relative">
+              <img
+                src="./images-BMW/1.jpg"
+                onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                alt="Ford Explorer 2023"
+                class="w-full h-48 object-cover rounded-t-xl"
+              />
+              <!-- Great Price Badge -->
+              <span
+                class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+              >
+                Great Price
+              </span>
+              <!-- Bookmark Icon -->
+              <button
+                class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-5">
+              <h2
+                class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+              >
+                This is the new £160k BMW M4 GT4 racing car
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                3.0L Twin-Turbo Inline-6
+              </p>
+
+              <!-- Specifications Grid -->
+              <div class="grid grid-cols-3 gap-y-4 mb-6">
+                <!-- Miles -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >2000 Miles</span
+                  >
+                </div>
+                <!-- Fuel Type -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                    >
+                      <line x1="3" x2="15" y1="22" y2="22" />
+                      <line x1="4" x2="14" y1="9" y2="9" />
+                      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                      <path
+                        d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Petrol</span
+                  >
+                </div>
+                <!-- Transmission -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                    >
+                      <path
+                        d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                      />
+                      <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                      <path d="M21 21v-2h-4" />
+                      <path d="M3 5h4V3" />
+                      <path
+                        d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Racing Sequential</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+              >
+                <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                  >$270,000</span
+                >
+                <a
+                  href="./detail-BMW.html"
+                  class="block w-fit bg-pink-500 text-white font-semibold rounded-full px-3 py-2 flex items-center space-x-2 transition duration-200 ease-in-out hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+                >
+                  <span>Buy now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="w-6 h-6 text-white fill-current"
+                  >
+                    <path
+                      d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 16 -->
+          <div
+            class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-up"
+          >
+            <!-- Image Section -->
+            <div class="relative">
+              <img
+                src="./images-BMW/1.jpg"
+                onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                alt="Ford Explorer 2023"
+                class="w-full h-48 object-cover rounded-t-xl"
+              />
+              <!-- Great Price Badge -->
+              <span
+                class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+              >
+                Great Price
+              </span>
+              <!-- Bookmark Icon -->
+              <button
+                class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-5">
+              <h2
+                class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+              >
+                This is the new £160k BMW M4 GT4 racing car
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                3.0L Twin-Turbo Inline-6
+              </p>
+
+              <!-- Specifications Grid -->
+              <div class="grid grid-cols-3 gap-y-4 mb-6">
+                <!-- Miles -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >2000 Miles</span
+                  >
+                </div>
+                <!-- Fuel Type -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                    >
+                      <line x1="3" x2="15" y1="22" y2="22" />
+                      <line x1="4" x2="14" y1="9" y2="9" />
+                      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                      <path
+                        d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Petrol</span
+                  >
+                </div>
+                <!-- Transmission -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                    >
+                      <path
+                        d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                      />
+                      <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                      <path d="M21 21v-2h-4" />
+                      <path d="M3 5h4V3" />
+                      <path
+                        d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Racing Sequential</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+              >
+                <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                  >$270,000</span
+                >
+                <a
+                  href="./detail-BMW.html"
+                  class="block w-fit bg-pink-500 text-white font-semibold rounded-full px-3 py-2 flex items-center space-x-2 transition duration-200 ease-in-out hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+                >
+                  <span>Buy now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="w-6 h-6 text-white fill-current"
+                  >
+                    <path
+                      d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Specials Section -->
+      <section class="my-12">
+        <h2
+          class="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center md:text-left dark:text-white"
+        >
+          Specials
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-up"
+          >
+            <!-- Image Section -->
+            <div class="relative">
+              <img
+                src="./images-BMW/1.jpg"
+                onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                alt="Ford Explorer 2023"
+                class="w-full h-48 object-cover rounded-t-xl"
+              />
+              <!-- Great Price Badge -->
+              <span
+                class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+              >
+                Great Price
+              </span>
+              <!-- Bookmark Icon -->
+              <button
+                class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-5">
+              <h2
+                class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+              >
+                This is the new £160k BMW M4 GT4 racing car
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                3.0L Twin-Turbo Inline-6
+              </p>
+
+              <!-- Specifications Grid -->
+              <div class="grid grid-cols-3 gap-y-4 mb-6">
+                <!-- Miles -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >2000 Miles</span
+                  >
+                </div>
+                <!-- Fuel Type -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                    >
+                      <line x1="3" x2="15" y1="22" y2="22" />
+                      <line x1="4" x2="14" y1="9" y2="9" />
+                      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                      <path
+                        d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Petrol</span
+                  >
+                </div>
+                <!-- Transmission -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                    >
+                      <path
+                        d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                      />
+                      <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                      <path d="M21 21v-2h-4" />
+                      <path d="M3 5h4V3" />
+                      <path
+                        d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Racing Sequential</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+              >
+                <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                  >$270,000</span
+                >
+                <a
+                  href="./detail-BMW.html"
+                  class="block w-fit bg-pink-500 text-white font-semibold rounded-full px-3 py-2 flex items-center space-x-2 transition duration-200 ease-in-out hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+                >
+                  <span>Buy now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="w-6 h-6 text-white fill-current"
+                  >
+                    <path
+                      d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- 2 -->
+          <div
+            class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-up"
+          >
+            <!-- Image Section -->
+            <div class="relative">
+              <img
+                src="./images-BMW/1.jpg"
+                onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                alt="Ford Explorer 2023"
+                class="w-full h-48 object-cover rounded-t-xl"
+              />
+              <!-- Great Price Badge -->
+              <span
+                class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+              >
+                Great Price
+              </span>
+              <!-- Bookmark Icon -->
+              <button
+                class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-5">
+              <h2
+                class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+              >
+                This is the new £160k BMW M4 GT4 racing car
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                3.0L Twin-Turbo Inline-6
+              </p>
+
+              <!-- Specifications Grid -->
+              <div class="grid grid-cols-3 gap-y-4 mb-6">
+                <!-- Miles -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >2000 Miles</span
+                  >
+                </div>
+                <!-- Fuel Type -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                    >
+                      <line x1="3" x2="15" y1="22" y2="22" />
+                      <line x1="4" x2="14" y1="9" y2="9" />
+                      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                      <path
+                        d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Petrol</span
+                  >
+                </div>
+                <!-- Transmission -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                    >
+                      <path
+                        d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                      />
+                      <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                      <path d="M21 21v-2h-4" />
+                      <path d="M3 5h4V3" />
+                      <path
+                        d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Racing Sequential</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+              >
+                <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                  >$270,000</span
+                >
+                <a
+                  href="./detail-BMW.html"
+                  class="block w-fit bg-pink-500 text-white font-semibold rounded-full px-3 py-2 flex items-center space-x-2 transition duration-200 ease-in-out hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+                >
+                  <span>Buy now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="w-6 h-6 text-white fill-current"
+                  >
+                    <path
+                      d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- 3 -->
+          <div
+            class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-up"
+          >
+            <!-- Image Section -->
+            <div class="relative">
+              <img
+                src="./images-BMW/1.jpg"
+                onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                alt="Ford Explorer 2023"
+                class="w-full h-48 object-cover rounded-t-xl"
+              />
+              <!-- Great Price Badge -->
+              <span
+                class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+              >
+                Great Price
+              </span>
+              <!-- Bookmark Icon -->
+              <button
+                class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-5">
+              <h2
+                class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+              >
+                This is the new £160k BMW M4 GT4 racing car
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                3.0L Twin-Turbo Inline-6
+              </p>
+
+              <!-- Specifications Grid -->
+              <div class="grid grid-cols-3 gap-y-4 mb-6">
+                <!-- Miles -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >2000 Miles</span
+                  >
+                </div>
+                <!-- Fuel Type -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                    >
+                      <line x1="3" x2="15" y1="22" y2="22" />
+                      <line x1="4" x2="14" y1="9" y2="9" />
+                      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                      <path
+                        d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Petrol</span
+                  >
+                </div>
+                <!-- Transmission -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                    >
+                      <path
+                        d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                      />
+                      <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                      <path d="M21 21v-2h-4" />
+                      <path d="M3 5h4V3" />
+                      <path
+                        d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Racing Sequential</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+              >
+                <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                  >$270,000</span
+                >
+                <a
+                  href="./detail-BMW.html"
+                  class="block w-fit bg-pink-500 text-white font-semibold rounded-full px-3 py-2 flex items-center space-x-2 transition duration-200 ease-in-out hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+                >
+                  <span>Buy now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="w-6 h-6 text-white fill-current"
+                  >
+                    <path
+                      d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- 4 -->
+          <div
+            class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-up"
+          >
+            <!-- Image Section -->
+            <div class="relative">
+              <img
+                src="./images-BMW/1.jpg"
+                onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                alt="Ford Explorer 2023"
+                class="w-full h-48 object-cover rounded-t-xl"
+              />
+              <!-- Great Price Badge -->
+              <span
+                class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+              >
+                Great Price
+              </span>
+              <!-- Bookmark Icon -->
+              <button
+                class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-5">
+              <h2
+                class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+              >
+                This is the new £160k BMW M4 GT4 racing car
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                3.0L Twin-Turbo Inline-6
+              </p>
+
+              <!-- Specifications Grid -->
+              <div class="grid grid-cols-3 gap-y-4 mb-6">
+                <!-- Miles -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >2000 Miles</span
+                  >
+                </div>
+                <!-- Fuel Type -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                    >
+                      <line x1="3" x2="15" y1="22" y2="22" />
+                      <line x1="4" x2="14" y1="9" y2="9" />
+                      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                      <path
+                        d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Petrol</span
+                  >
+                </div>
+                <!-- Transmission -->
+                <div class="flex flex-col items-center">
+                  <div
+                    class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                    >
+                      <path
+                        d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                      />
+                      <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                      <path d="M21 21v-2h-4" />
+                      <path d="M3 5h4V3" />
+                      <path
+                        d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >Racing Sequential</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+              >
+                <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                  >$270,000</span
+                >
+                <a
+                  href="./detail-BMW.html"
+                  class="block w-fit bg-pink-500 text-white font-semibold rounded-full px-3 py-2 flex items-center space-x-2 transition duration-200 ease-in-out hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+                >
+                  <span>Buy now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="w-6 h-6 text-white fill-current"
+                  >
+                    <path
+                      d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action Section -->
+      <section
+        class="bg-blue-900 text-white rounded-xl p-8 my-12 shadow-lg flex flex-col md:flex-row items-center justify-between"
+        data-aos="fade-left"
+      >
+        <div class="mb-6 md:mb-0 text-center md:text-left">
+          <h2 class="text-2xl md:text-3xl font-bold mb-2">
+            Looking for a car ?
+          </h2>
+          <p class="text-xl md:text-2xl font-semibold">+885 81 528 714</p>
+          <a
+            href="/booking"
+            class="bg-pink-600 inline-block py-2 px-4 rounded text-white font-semibold mt-4"
+            >Book now</a
+          >
+        </div>
+        <img
+          src="./image/card01.jpg"
+          alt="Car Placeholder"
+          class="rounded-lg shadow-md max-w-full h-auto"
+        />
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 dark:bg-gray-950">
+      <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="text-center md:text-left">
+          <div
+            class="flex flex-col items-center justify-center sm:flex-row sm:justify-start md:flex-col lg:flex-row lg:justify-start mb-4"
+          >
+            <img
+              src="./image/Logo.png"
+              alt="AutoFlux Logo"
+              class="h-36 w-36 rounded-full mb-2 sm:mb-0 sm:mr-2 md:mb-2 md:mr-0 lg:mr-2 lg:mb-0"
+            />
+            <span class="text-md font-bold">AUTOFLUX</span>
+          </div>
+          <p class="text-gray-400 text-sm break-words">
+            Your premier destination for buying and selling cars online.
+            Connecting you with your dream car.
+          </p>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li>
+              <a href="./Home-page.html" class="hover:text-gray-300">Home</a>
+            </li>
+            <li><a href="./shop.html" class="hover:text-gray-300">Shop</a></li>
+            <li>
+              <a href="./about-us.html" class="hover:text-gray-300">About</a>
+            </li>
+            <li>
+              <a href="./contact-us.html" class="hover:text-gray-300"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="font-semibold text-lg text-white mb-4">Our Brand</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li>
+              <a href="./detail-BMW.html" class="hover:text-gray-300">BMW M</a>
+            </li>
+            <li>
+              <a href="./detail-Jeep.html" class="hover:text-gray-300">Jeep</a>
+            </li>
+            <li>
+              <a href="./detail-Mezerdes.html" class="hover:text-gray-300"
+                >Mercedes-AMG</a
+              >
+            </li>
+            <li>
+              <a href="./detail-Ford.html" class="hover:text-gray-300">Ford</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="font-semibold text-lg text-white mb-4">Contact Us</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><i class="fas fa-envelope mr-1"></i>AutoFlux@gmail.com</li>
+            <li><i class="fas fa-phone mr-1"></i> +855 81 528 714</li>
+            <li><i class="fas fa-map-marker-alt mr-1"></i> AutoFlux.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm"
+      >
+        Copyright 2015 All Right Reserved. Made in Logger.
+      </div>
+    </footer>
+    <script src="../node_modules/preline/dist/preline.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      const body = document.body;
+      const themeBtn = document.getElementById("theme-toggle");
+      const mobileThemeBtn = document.getElementById("mobile-theme-toggle");
+      const themeIcon = document.getElementById("theme-icon");
+      const mobileThemeIcon = document.getElementById("mobile-theme-icon");
+
+      let isDark =
+        localStorage.getItem("theme") === "dark" ||
+        (!localStorage.getItem("theme") &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+      function setTheme(dark) {
+        if (dark) {
+          body.classList.add("dark");
+          themeIcon.className = "fa-solid fa-sun";
+          mobileThemeIcon.className = "fa-solid fa-sun";
+          localStorage.setItem("theme", "dark");
+        } else {
+          body.classList.remove("dark");
+          themeIcon.className = "fa-solid fa-moon";
+          mobileThemeIcon.className = "fa-solid fa-moon";
+          localStorage.setItem("theme", "light");
+        }
+      }
+
+      function toggleTheme() {
+        const darkMode = !body.classList.contains("dark");
+        setTheme(darkMode);
+      }
+
+      themeBtn.addEventListener("click", toggleTheme);
+      mobileThemeBtn.addEventListener("click", toggleTheme);
+      setTheme(isDark);
+
+      AOS.init({
+        duration: 1500, // global duration for animations
+        once: true, // whether animation should happen only once - default
+        mirror: false, // whether elements should animate out while scrolling past them
+      });
+
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      const fadeInSections = document.querySelectorAll(".fade-in-section");
+      const observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      fadeInSections.forEach((section) => observer.observe(section));
+    </script>
+  </body>
+</html>

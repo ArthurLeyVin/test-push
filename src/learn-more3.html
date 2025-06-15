@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoFlux</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="shortcut icon" href="./image/Logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="output.css" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+        body.dark {
+            background-color: #1a202c;
+        }
+
+        .hero-background {
+            background-image: url("./image/big02.webp");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .text-shadow-strong {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden overflow-y-auto">
+
+    <header class="bg-gray-800 text-white p-4 shadow-md dark:bg-gray-900">
+      <div class="container mx-auto flex justify-between items-center px-4 md:px-0">
+        <div class="flex items-center">
+          <img src="./image/Logo.png" alt="AutoFlux Logo" class="h-16 w-16 md:h-20 md:w-20 rounded-full mr-2" />
+          <span class="text-md font-bold">AUTOFLUX</span>
+        </div>
+
+        <nav class="hidden md:flex space-x-6">
+          <a href="./Home-page.html" class="hover:text-gray-300">Home</a>
+          <a href="#" class="hover:text-gray-300">Shop</a>
+          <a href="#" class="hover:text-gray-300">About Us</a>
+          <a href="#" class="hover:text-gray-300">Contact</a>
+        </nav>
+
+        <div class="hidden md:flex items-center space-x-4">
+          <button id="theme-toggle" class="text-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-2xl md:text-2xl p-2.5">
+            <i id="theme-icon" class="fa-solid fa-moon"></i>
+          </button>
+          <a href="login.html" class="text-white hover:text-gray-300 cursor-pointer">
+            <i class="fas fa-user-circle text-2xl md:text-3xl"></i>
+          </a>
+        </div>
+
+        <div class="md:hidden flex items-center space-x-4">
+          <button id="mobile-theme-toggle" class="text-gray-400 focus:outline-none text-2xl">
+            <i id="mobile-theme-icon" class="fa-solid fa-moon"></i>
+          </button>
+          <button id="mobile-menu-button" class="text-white focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden bg-gray-800 text-white py-4 mt-2 dark:bg-gray-900">
+        <nav class="flex flex-col items-center space-y-4 px-4">
+          <a href="./Home-page.html" class="hover:text-gray-300 w-full text-center py-2">Home</a>
+          <a href="#" class="hover:text-gray-300 w-full text-center py-2">Shop</a>
+          <a href="#" class="hover:text-gray-300 w-full text-center py-2">About Us</a>
+          <a href="#" class="hover:text-gray-300 w-full text-center py-2">Contact</a>
+          <a href="login.html" class="hover:text-gray-300 w-full text-center py-2">
+            <i class="fas fa-user-circle text-2xl pt-4"></i> Profile
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section class="mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 mt-8 text-indigo-700 dark:text-indigo-400" data-aos="fade-up">Top Categories</h2>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-8" data-aos="fade-up" data-aos-delay="100">
+                <button class="px-6 py-2 rounded-full bg-indigo-700 text-white hover:bg-indigo-800 transition duration-300 dark:bg-indigo-600 dark:hover:bg-indigo-700" ><i class="fas fa-arrow-left mr-2"></i><a href="./Home-page.html">Back</a></button>
+                <button class="px-6 py-2 rounded-full border border-indigo-500 text-indigo-700 hover:bg-indigo-500 hover:text-white transition duration-300 dark:border-indigo-400 dark:text-indigo-400 dark:hover:bg-indigo-600">In stock</button>
+                <button class="px-6 py-2 rounded-full border border-indigo-500 text-indigo-700 hover:bg-indigo-500 hover:text-white transition duration-300 dark:border-indigo-400 dark:text-indigo-400 dark:hover:bg-indigo-600">Used Cars</button>
+                <button class="px-6 py-2 rounded-full border border-indigo-500 text-indigo-700 hover:bg-indigo-500 hover:text-white transition duration-300 dark:border-indigo-400 dark:text-indigo-400 dark:hover:bg-indigo-600">Any Models</button>
+                <button class="px-6 py-2 rounded-full border border-indigo-500 text-indigo-700 hover:bg-indigo-500 hover:text-white transition duration-300 dark:border-indigo-400 dark:text-indigo-400 dark:hover:bg-indigo-600">Any Motors</button>
+                <button class="px-6 py-2 rounded-full bg-indigo-700 text-white hover:bg-indigo-800 transition duration-300 dark:bg-indigo-600 dark:hover:bg-indigo-700">All Prices</button>
+            </div>
+
+            <div class="bg-gray-200 dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg p-4 md:p-6 mb-8" data-aos="fade-right">
+                <div class="flex flex-col lg:flex-row items-center gap-6">
+                    <div class="lg:w-1/2">
+                        <img src="./image/big-01.jpg" alt="Rolls Royce Wraith" class="rounded-lg shadow-md w-full h-auto object-cover">
+                    </div>
+                    <div class="lg:w-1/2 text-center lg:text-left">
+                        <h3 class="text-3xl md:text-4xl font-bold text-indigo-800 dark:text-indigo-300 mb-2">Rolls Royce Wraith</h3>
+                        <p class="text-xl md:text-2xl font-semibold text-gray-700 dark:text-gray-300 mb-4">$ 70,000</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-base">A masterpiece of automotive engineering and luxury. Experience unparalleled comfort and performance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-200 dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-4" data-aos="fade-up" data-aos-delay="200">
+                    <img src="./images-BMW/1.jpg" alt="Car" class="w-full h-40 object-cover rounded-md mb-4">
+                    <h4 class="text-xl font-semibold text-indigo-700 dark:text-indigo-300 mb-1">Feron</h4>
+                    <p class="text-lg font-bold text-gray-800 dark:text-gray-200 mb-2">$ 78,000</p>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">578,000 km</span>
+                </div>
+                <div class="bg-gray-200 dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-4" data-aos="fade-up" data-aos-delay="300">
+                    <img src="./image/card02.jpg" alt="Car" class="w-full h-40 object-cover rounded-md mb-4">
+                    <h4 class="text-xl font-semibold text-indigo-700 dark:text-indigo-300 mb-1">Tanari</h4>
+                    <p class="text-lg font-bold text-gray-800 dark:text-gray-200 mb-2">$ 78,000</p>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">Lotos peum</span>
+                </div>
+                <div class="bg-gray-200 dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-4" data-aos="fade-up" data-aos-delay="400">
+                    <img src="./image/card03.jpg" alt="Car" class="w-full h-40 object-cover rounded-md mb-4">
+                    <h4 class="text-xl font-semibold text-indigo-700 dark:text-indigo-300 mb-1">Another Model</h4>
+                    <p class="text-lg font-bold text-gray-800 dark:text-gray-200 mb-2">$ 65,000</p>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">Excellent Condition</span>
+                </div>
+                <div class="bg-gray-200 dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-4" data-aos="fade-up" data-aos-delay="500">
+                    <img src="./image/card04.jpg" alt="Car" class="w-full h-40 object-cover rounded-md mb-4">
+                    <h4 class="text-xl font-semibold text-indigo-700 dark:text-indigo-300 mb-1">Classic Ride</h4>
+                    <p class="text-lg font-bold text-gray-800 dark:text-gray-200 mb-2">$ 92,000</p>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">Vintage Collection</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 mt-8 text-indigo-700 dark:text-indigo-400" data-aos="fade-up">Our Services</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-1 gap-8">
+                <div class="bg-gradient-to-r from-indigo-700 to-purple-800 text-white rounded-xl shadow-lg p-6 flex flex-col md:flex-row items-center gap-6" data-aos="fade-right">
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-bold mb-3">All Brands</h3>
+                        <p class="text-base leading-relaxed mb-4">Lorem Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                        <button class="bg-white text-indigo-800 px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition duration-300">Get Start</button>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="./image/pic1.jpg" alt="Car Interior" class="rounded-lg shadow-md w-full h-auto object-cover">
+                    </div>
+                </div>
+
+                <div class="bg-gray-200 dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col md:flex-row items-center gap-6" data-aos="fade-left">
+                    <div class="md:w-1/2 order-2 md:order-1">
+                        <img src="./image/pic2.jpg" alt="Support" class="rounded-lg shadow-md w-full h-auto object-cover">
+                    </div>
+                    <div class="md:w-1/2 order-1 md:order-2 text-gray-900 dark:text-gray-100">
+                        <h3 class="text-2xl font-bold text-indigo-700 dark:text-indigo-300 mb-3">Free Support</h3>
+                        <p class="text-base leading-relaxed mb-4">Lorem Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                        <button class="bg-indigo-700 text-white px-6 py-2 rounded-full font-semibold hover:bg-indigo-800 transition duration-300 dark:bg-indigo-600 dark:hover:bg-indigo-700">Get Start</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 mt-8 text-indigo-700 dark:text-indigo-400" data-aos="fade-up">Auto Loan Calculator</h2>
+            <div class="bg-gray-200 dark:bg-gray-800 rounded-xl shadow-lg p-6 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center" data-aos="zoom-in">
+                <div class="p-4">
+                    <div class="mb-4">
+                        <label for="loanAmount" class="block text-gray-700 dark:text-gray-300 text-lg font-medium mb-2">Loan Amount ($)</label>
+                        <input type="range" id="loanAmount" min="1000" max="100000" value="1000" class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer range-lg dark:bg-gray-700" oninput="this.nextElementSibling.value=this.value">
+                        <output class="block text-gray-700 dark:text-gray-300 mt-2">$ 1,000</output>
+                    </div>
+                    <div class="mb-4">
+                        <label for="downPayment" class="block text-gray-700 dark:text-gray-300 text-lg font-medium mb-2">Down Payment ($)</label>
+                        <input type="range" id="downPayment" min="0" max="20000" value="2000" class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer range-lg dark:bg-gray-700" oninput="this.nextElementSibling.value=this.value">
+                        <output class="block text-gray-700 dark:text-gray-300 mt-2">$ 2,000</output>
+                    </div>
+                    <div class="mb-4">
+                        <label for="loanTerm" class="block text-gray-700 dark:text-gray-300 text-lg font-medium mb-2">Loan Term (Years)</label>
+                        <input type="range" id="loanTerm" min="1" max="7" value="3" class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer range-lg dark:bg-gray-700" oninput="this.nextElementSibling.value=this.value">
+                        <output class="block text-gray-700 dark:text-gray-300 mt-2">3 Years</output>
+                    </div>
+                    <button class="bg-pink-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-pink-700 transition duration-300 w-full mt-4">Calculate Loan</button>
+                </div>
+                <div class="p-4">
+                    <img src="./image/person.jpg" alt="Man calculating loan" class="rounded-lg shadow-md w-full h-auto object-cover">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white py-12 dark:bg-gray-950">
+      <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="text-center md:text-left">
+          <div class="flex flex-cols items-center justify-center sm:flex-row sm:justify-start md:flex-col lg:flex-row lg:justify-start mb-4">
+            <img src="./image/Logo.png" alt="AutoFlux Logo" class="h-36 w-36 rounded-full mr-2" />
+            <span class="text-md font-bold">AUTOFLUX</span>
+          </div>
+          <p class="text-gray-400 text-sm break-words">
+            Your premier destination for buying and selling cars online. Connecting you with your dream car.
+          </p>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="./Home-page.html" class="hover:text-gray-300">Home</a></li>
+            <li><a href="#" class="hover:text-gray-300">Shop</a></li>
+            <li><a href="#" class="hover:text-gray-300">About</a></li>
+            <li><a href="#" class="hover:text-gray-300">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="font-semibold text-lg text-white mb-4">Our Brand</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="./detail-BMW.html" class="hover:text-gray-300">BMW M</a></li>
+            <li><a href="./detail-Jeep.html" class="hover:text-gray-300">Jeep</a></li>
+            <li><a href="./detail-Mezerdes.html" class="hover:text-gray-300">Mercedes-AMG</a></li>
+            <li><a href="./detail-Ford.html" class="hover:text-gray-300">Ford</a></li>
+          </ul>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="font-semibold text-lg text-white mb-4">Contact Us</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><i class="fas fa-envelope mr-1"></i>AutoFlux@gmail.com</li>
+            <li><i class="fas fa-phone mr-1"></i> +855 815 287 14</li>
+            <li><i class="fas fa-map-marker-alt mr-1"></i> AutoFlux.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
+        Copyright 2015 All Right Reserved. Made in Logger.
+      </div>
+    </footer>
+    <script src="../node_modules/preline/dist/preline.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      const body = document.body;
+      const themeBtn = document.getElementById("theme-toggle");
+      const mobileThemeBtn = document.getElementById("mobile-theme-toggle");
+      const themeIcon = document.getElementById("theme-icon");
+      const mobileThemeIcon = document.getElementById("mobile-theme-icon");
+
+      let isDark = localStorage.getItem("theme") === "dark" || (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+      function setTheme(dark) {
+        if (dark) {
+          body.classList.add("dark");
+          themeIcon.className = "fa-solid fa-sun";
+          mobileThemeIcon.className = "fa-solid fa-sun";
+          localStorage.setItem("theme", "dark");
+        } else {
+          body.classList.remove("dark");
+          themeIcon.className = "fa-solid fa-moon";
+          mobileThemeIcon.className = "fa-solid fa-moon";
+          localStorage.setItem("theme", "light");
+        }
+      }
+
+      function toggleTheme() {
+        const darkMode = !body.classList.contains("dark");
+        setTheme(darkMode);
+      }
+
+      themeBtn.addEventListener("click", toggleTheme);
+      mobileThemeBtn.addEventListener("click", toggleTheme);
+      setTheme(isDark);
+
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Initialize AOS
+      AOS.init({
+        duration: 800, // global duration for animations
+        once: true,    // whether animation should happen only once - default
+        mirror: false, // whether elements should animate out while scrolling past them
+      });
+
+      // Your custom Intersection Observer for .fade-in-section (if still desired)
+      // Note: If AOS covers all your needs, you might remove this.
+      const fadeInSections = document.querySelectorAll(".fade-in-section");
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      fadeInSections.forEach((section) => observer.observe(section));
+
+      // Loan Calculator Logic (add this if you want the output to update dynamically)
+      document.addEventListener('DOMContentLoaded', () => {
+        const loanAmount = document.getElementById('loanAmount');
+        const downPayment = document.getElementById('downPayment');
+        const loanTerm = document.getElementById('loanTerm');
+
+        const loanAmountOutput = loanAmount.nextElementSibling;
+        const downPaymentOutput = downPayment.nextElementSibling;
+        const loanTermOutput = loanTerm.nextElementSibling;
+
+        loanAmount.addEventListener('input', () => {
+          loanAmountOutput.value = `$ ${parseInt(loanAmount.value).toLocaleString()}`;
+        });
+
+        downPayment.addEventListener('input', () => {
+          downPaymentOutput.value = `$ ${parseInt(downPayment.value).toLocaleString()}`;
+        });
+
+        loanTerm.addEventListener('input', () => {
+          loanTermOutput.value = `${loanTerm.value} Years`;
+        });
+
+        // Initialize outputs on load
+        loanAmountOutput.value = `$ ${parseInt(loanAmount.value).toLocaleString()}`;
+        downPaymentOutput.value = `$ ${parseInt(downPayment.value).toLocaleString()}`;
+        loanTermOutput.value = `${loanTerm.value} Years`;
+      });
+    </script>
+</body>
+</html>

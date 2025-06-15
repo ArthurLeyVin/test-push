@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoFlux</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        darkMode: "class", // Enable dark mode based on the 'dark' class on the body
+        theme: {
+          extend: {
+            colors: {
+              // Define custom dark mode colors if needed
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Inter Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="shortcut icon" href="./image/Logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="output.css" />
+    <style>
+      /* Base light mode styles */
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f8f9fa; /* Light background as seen in the image */
+        transition: background-color 0.3s ease; /* Smooth transition for dark mode */
+      }
+      /* Dark mode body styles */
+      body.dark {
+        background-color: #1a202c; /* Dark background for dark mode */
+      }
+
+      .hero-background {
+        background-image: url("./images-BMW/1.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      @media (min-width: 640px) {
+        .hero-background {
+          background-image: url("./images-BMW/1.jpg");
+        }
+      }
+      .text-shadow-strong {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      }
+    </style>
+  </head>
+  <body class="overflow-x-hidden overflow-y-auto">
+    <!-- Navbar Section -->
+    <header
+      class="bg-gray-800 text-white p-4 shadow-md dark:bg-gray-900 sticky top-0 z-50"
+    >
+      <div
+        class="container mx-auto flex justify-between items-center px-4 md:px-0"
+      >
+        <div class="flex items-center">
+          <img
+            src="./image/Logo.png"
+            alt="AutoFlux Logo"
+            class="h-16 w-16 md:h-20 md:w-20 rounded-full mr-2"
+          />
+          <!-- <span class="text-md font-bold">AUTOFLUX</span> -->
+        </div>
+
+        <nav class="hidden md:flex space-x-6">
+          <a href="./Home-page.html" class="hover:text-gray-300">Home</a>
+          <a href="./shop.html" class="hover:text-gray-300">Shop</a>
+          <a href="./about-us.html" class="hover:text-gray-300">About Us</a>
+          <a href="./contact-us.html" class="hover:text-gray-300">Contact</a>
+        </nav>
+
+        <div class="hidden md:flex items-center space-x-4">
+          <button
+            id="theme-toggle"
+            class="text-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-2xl md:text-2xl p-2.5"
+          >
+            <i id="theme-icon" class="fa-solid fa-moon"></i>
+          </button>
+          <a
+            href="login.html"
+            class="text-white hover:text-gray-300 cursor-pointer"
+          >
+            <i class="fas fa-user-circle text-2xl md:text-3xl"></i>
+          </a>
+        </div>
+
+        <div class="md:hidden flex items-center space-x-4">
+          <button
+            id="mobile-theme-toggle"
+            class="text-gray-400 focus:outline-none text-2xl"
+          >
+            <i id="mobile-theme-icon" class="fa-solid fa-moon"></i>
+          </button>
+          <button id="mobile-menu-button" class="text-white focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-gray-800 text-white py-4 mt-2 dark:bg-gray-900"
+      >
+        <nav class="flex flex-col items-center space-y-4 px-4">
+          <a
+            href="./Home-page.html"
+            class="hover:text-gray-300 w-full text-center py-2"
+            >Home</a
+          >
+          <a href="#" class="hover:text-gray-300 w-full text-center py-2"
+            >Shop</a
+          >
+          <a href="#" class="hover:text-gray-300 w-full text-center py-2"
+            >About Us</a
+          >
+          <a href="#" class="hover:text-gray-300 w-full text-center py-2"
+            >Contact</a
+          >
+          <a
+            href="login.html"
+            class="hover:text-gray-300 w-full text-center py-2"
+          >
+            <i class="fas fa-user-circle text-2xl pt-4"></i> Profile
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section
+        class="hero-background relative md:h-[500px] flex items-center justify-center text-white w-full h-auto object-cover"
+        data-aos="fade-down"
+      >
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <!-- Overlay for text readability -->
+        <div class="relative z-10 text-center px-4">
+          <p
+            class="text-4xl md:text-5xl font-extrabold mb-2 text-shadow-strong"
+          >
+            <span class="dark:text-gray-200">$270,000</span>
+          </p>
+          <h1 class="text-5xl md:text-7xl font-bold mb-4 text-shadow-strong">
+            <span class="dark:text-white">Mercedes-Benz, C Class</span>
+          </h1>
+          <div
+            class="flex items-center justify-center space-x-4 text-lg md:text-xl text-shadow-strong"
+          >
+            <span class="dark:text-gray-200"
+              ><i class="fas fa-tachometer-alt mr-1"></i> 20k Miles</span
+            >
+            <span class="dark:text-gray-200"
+              ><i class="fas fa-car-side mr-1"></i> Automatic</span
+            >
+            <span class="dark:text-gray-200"
+              ><i class="fas fa-gas-pump mr-1"></i> Petrol</span
+            >
+          </div>
+          <button
+            class="mb-4 mt-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out dark:bg-blue-700 dark:hover:bg-blue-800"
+          >
+            <a href="./learn-more3.html" class="hover:text-gray-300"
+              >Learn More</a
+            >
+            <i class="fas fa-arrow-right ml-2"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- The Most Searched Cars Section -->
+      <section class="py-12 bg-white fade-in-section dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-800 dark:text-white"
+          >
+            The Most Searched Cars
+          </h2>
+
+          <!-- Category Tabs -->
+          <div
+            class="flex justify-center space-x-2 md:space-x-6 mb-10 overflow-x-auto pb-2"
+          >
+            <button
+              class="px-5 py-2 md:px-8 md:py-3 bg-blue-600 text-white rounded-full shadow-md text-sm md:text-base whitespace-nowrap dark:bg-blue-700 dark:hover:bg-blue-800"
+            >
+              Sedan
+            </button>
+            <button
+              class="px-5 py-2 md:px-8 md:py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition text-sm md:text-base whitespace-nowrap dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
+            >
+              SUV
+            </button>
+            <button
+              class="px-5 py-2 md:px-8 md:py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition text-sm md:text-base whitespace-nowrap dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
+            >
+              Convertible
+            </button>
+            <button
+              class="px-5 py-2 md:px-8 md:py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition text-sm md:text-base whitespace-nowrap dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
+            >
+              Hatchback
+            </button>
+          </div>
+
+          <!-- Car Listings Grid - Updated to match original image card design -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Car Card 1 (Original Image Design) -->
+            <div
+              class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+              data-aos="fade-down-right"
+            >
+              <!-- Image Section -->
+              <div class="relative">
+                <img
+                  src="./images-BMW/1.jpg"
+                  onerror="this.src='https://placehold.co/600x400/A7B6D8/ffffff?text=Ford+Explorer';"
+                  alt="Ford Explorer 2023"
+                  class="w-full h-48 object-cover rounded-t-xl"
+                />
+                <!-- Great Price Badge -->
+                <span
+                  class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+                >
+                  Great Price
+                </span>
+                <!-- Bookmark Icon -->
+                <button
+                  class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Content Section -->
+              <div class="p-5">
+                <h2
+                  class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+                >
+                  This is the new £160k BMW M4 GT4 racing car
+                </h2>
+                <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                  3.0L Twin-Turbo Inline-6
+                </p>
+
+                <!-- Specifications Grid -->
+                <div class="grid grid-cols-3 gap-y-4 mb-6">
+                  <!-- Miles -->
+                  <div class="flex flex-col items-center">
+                    <div
+                      class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                      >2000 Miles</span
+                    >
+                  </div>
+                  <!-- Fuel Type -->
+                  <div class="flex flex-col items-center">
+                    <div
+                      class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                      >
+                        <line x1="3" x2="15" y1="22" y2="22" />
+                        <line x1="4" x2="14" y1="9" y2="9" />
+                        <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                        <path
+                          d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                      >Petrol</span
+                    >
+                  </div>
+                  <!-- Transmission -->
+                  <div class="flex flex-col items-center">
+                    <div
+                      class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                      >
+                        <path
+                          d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                        />
+                        <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                        <path d="M21 21v-2h-4" />
+                        <path d="M3 5h4V3" />
+                        <path
+                          d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                      >Racing Sequential</span
+                    >
+                  </div>
+                </div>
+
+                <div
+                  class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+                >
+                  <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                    >$270,000</span
+                  >
+                  <a
+                    href="./detail-BMW.html"
+                    class="flex items-center text-blue-600 font-semibold hover:underline dark:text-blue-400"
+                  >
+                    View Details
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 ml-1"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Car Card 2 (Original Image Design) -->
+            <div
+              class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+              data-aos="fade-down-right"
+            >
+              <!-- Image Section -->
+              <div class="relative">
+                <img
+                  src="./images-Jeep/1.jpg"
+                  onerror="this.src='https://placehold.co/600x400/B8A7D8/ffffff?text=Honda+Civic';"
+                  alt="Honda Civic 2022"
+                  class="w-full h-48 object-cover rounded-t-xl"
+                />
+                <!-- Great Price Badge -->
+                <span
+                  class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+                >
+                  New Listing
+                </span>
+                <!-- Bookmark Icon -->
+                <button
+                  class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Content Section -->
+              <div class="p-5">
+                <h2
+                  class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+                >
+                  The Wildest, Craziest Car Paint Colors Available...
+                </h2>
+                <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                  3.6L V6 or 2.0L Turbo (not i-VTEC)
+                </p>
+
+                <!-- Specifications Grid -->
+                <div class="grid grid-cols-3 gap-y-4 mb-6">
+                  <!-- Miles -->
+                  <div class="flex flex-col items-center">
+                    <div
+                      class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                      >5,000 Miles</span
+                    >
+                  </div>
+                  <!-- Fuel Type -->
+                  <div class="flex flex-col items-center">
+                    <div
+                      class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                      >
+                        <line x1="3" x2="15" y1="22" y2="22" />
+                        <line x1="4" x2="14" y1="9" y2="9" />
+                        <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                        <path
+                          d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                      >Petrol</span
+                    >
+                  </div>
+                  <!-- Transmission -->
+                  <div class="flex flex-col items-center">
+                    <div
+                      class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                      >
+                        <path
+                          d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                        />
+                        <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                        <path d="M21 21v-2h-4" />
+                        <path d="M3 5h4V3" />
+                        <path
+                          d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                      >8-speed Automatic
+                    </span>
+                  </div>
+                </div>
+
+                <div
+                  class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+                >
+                  <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                    >$59,000</span
+                  >
+                  <a
+                    href="./detail-Jeep.html"
+                    class="flex items-center text-blue-600 font-semibold hover:underline dark:text-blue-400"
+                  >
+                    View Details
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 ml-1"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Car Card 3 (Original Image Design) -->
+            <div
+              class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+              data-aos="fade-down-left"
+            >
+              <!-- Image Section -->
+              <div class="relative">
+                <img
+                  src="./image-Mercedes/1.jpg"
+                  onerror="this.src='https://placehold.co/600x400/D8A7A7/ffffff?text=Toyota+Camry';"
+                  alt="Toyota Camry 2021"
+                  class="w-full h-48 object-cover rounded-t-xl"
+                />
+                <!-- Great Price Badge -->
+                <span
+                  class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+                >
+                  Special Offer
+                </span>
+                <!-- Bookmark Icon -->
+                <button
+                  class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Content Section -->
+              <div class="p-5">
+                <h2
+                  class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+                >
+                  Mercedes-Benz AMG GT Black Series 2021
+                </h2>
+                <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                  4.0L Twin-Turbo V8
+                </p>
+
+                <!-- Specifications Grid -->
+                <div class="grid grid-cols-3 gap-y-4 mb-6">
+                  <!-- Miles -->
+                  <div class="flex flex-col items-center">
+                    <div
+                      class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                      >25,00 Miles</span
+                    >
+                  </div>
+                  <!-- Fuel Type -->
+                  <div class="flex flex-col items-center">
+                    <div
+                      class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                      >
+                        <line x1="3" x2="15" y1="22" y2="22" />
+                        <line x1="4" x2="14" y1="9" y2="9" />
+                        <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                        <path
+                          d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                      >Petro</span
+                    >
+                  </div>
+                  <!-- Transmission -->
+                  <div class="flex flex-col items-center">
+                    <div
+                      class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                      >
+                        <path
+                          d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                        />
+                        <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                        <path d="M21 21v-2h-4" />
+                        <path d="M3 5h4V3" />
+                        <path
+                          d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                      >7-speed Dual-Clutch</span
+                    >
+                  </div>
+                </div>
+
+                <div
+                  class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+                >
+                  <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                    >$106,000</span
+                  >
+                  <a
+                    href="./detail-Mezerdes.html"
+                    class="flex items-center text-blue-600 font-semibold hover:underline dark:text-blue-400"
+                  >
+                    View Details
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 ml-1"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Car Card 4 (Original Image Design) -->
+            <div
+              class="relative w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-700 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+              data-aos="fade-down-left"
+            >
+              <!-- Image Section -->
+              <div class="relative">
+                <img
+                  src="./image-ford/01.jpg"
+                  onerror="this.src='https://placehold.co/600x400/D8C1A7/ffffff?text=Mercedes+C-Class';"
+                  alt="Mercedes-Benz C-Class 2020"
+                  class="w-full h-48 object-cover rounded-t-xl"
+                />
+                <!-- Great Price Badge -->
+                <span
+                  class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md dark:bg-pink-600"
+                >
+                  Low Miles
+                </span>
+                <!-- Bookmark Icon -->
+                <button
+                  class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md focus:outline-none dark:bg-gray-600"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="w-5 h-5 text-gray-700 dark:text-gray-200"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21.75a.75.75 0 01-1.085.67L12 18.089l-7.593 3.322a.75.75 0 01-1.085-.67V5.507c0-1.108.806-2.057 1.907-2.185a48.513 48.513 0 014.273 0 48.513 48.513 0 014.273 0z"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Content Section -->
+              <div class="p-5">
+                <h2
+                  class="text-xl font-semibold text-gray-900 mb-1 dark:text-white"
+                >
+                  Ford Unveils 7th-Gen Mustang GT Supercar...
+                </h2>
+                <p class="text-sm text-gray-500 mb-4 dark:text-gray-300">
+                  5.2L Supercharged V8
+                </p>
+
+                <!-- Specifications Grid -->
+                <div class="grid grid-cols-3 gap-y-4 mb-6">
+                  <!-- Miles -->
+                  <div class="flex flex-col items-center">
+                    <div
+                      class="p-2 rounded-full bg-blue-100 mb-1 dark:bg-blue-800"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        class="w-5 h-5 text-blue-600 dark:text-blue-300"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M9 6.75V15m6-6v8.25m.5 1.5H9.5m6.34-1.5L12 21.75l-3.84-1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                      >12,00 Miles</span
+                    >
+                  </div>
+                  <!-- Fuel Type -->
+                  <div class="flex flex-col items-center">
+                    <div
+                      class="p-2 rounded-full bg-green-100 mb-1 dark:bg-green-800"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="w-5 h-5 text-green-600 dark:text-green-300 lucide lucide-fuel-icon lucide-fuel"
+                      >
+                        <line x1="3" x2="15" y1="22" y2="22" />
+                        <line x1="4" x2="14" y1="9" y2="9" />
+                        <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" />
+                        <path
+                          d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                      >Petrol</span
+                    >
+                  </div>
+                  <!-- Transmission -->
+                  <div class="flex flex-col items-center">
+                    <div
+                      class="p-2 rounded-full bg-purple-100 mb-1 dark:bg-purple-800"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="w-5 h-5 text-purple-600 dark:text-purple-300 lucide lucide-cable-icon lucide-cable"
+                      >
+                        <path
+                          d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"
+                        />
+                        <path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9" />
+                        <path d="M21 21v-2h-4" />
+                        <path d="M3 5h4V3" />
+                        <path
+                          d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="text-sm font-medium text-gray-700 dark:text-gray-200"
+                      >8-speed Dual-Clutch</span
+                    >
+                  </div>
+                </div>
+
+                <div
+                  class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-600"
+                >
+                  <span class="text-2xl font-bold text-gray-900 dark:text-white"
+                    >$300,000</span
+                  >
+                  <a
+                    href="./detail-Ford.html"
+                    class="flex items-center text-blue-600 font-semibold hover:underline dark:text-blue-400"
+                  >
+                    View Details
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 ml-1"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Action Cards Section -->
+      <section class="py-12 bg-gray-100 fade-in-section dark:bg-gray-900">
+        <div
+          class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
+          <!-- Are You Looking For a Car? Card -->
+          <div
+            class="bg-blue-100 rounded-xl shadow-lg p-8 flex flex-col md:flex-row items-center justify-between dark:bg-blue-900 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-right"
+          >
+            <div class="text-center md:text-left mb-6 md:mb-0">
+              <h3 class="text-2xl font-bold text-gray-800 mb-3 dark:text-white">
+                Are You Looking For a Car?
+              </h3>
+              <p class="text-gray-700 mb-6 max-w-md dark:text-gray-300">
+                We are committed to providing our customers with high-quality
+                and reliable services.
+              </p>
+              <button
+                class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full shadow-md transition duration-300 dark:bg-blue-700 dark:hover:bg-blue-800"
+              >
+                Get Started
+              </button>
+            </div>
+            <div class="flex-shrink-0">
+              <!-- Example Icon/Illustration (replace with actual SVG if possible) -->
+              <i
+                class="fas fa-car text-blue-400 text-6xl dark:text-blue-300"
+              ></i>
+            </div>
+          </div>
+
+          <!-- Do You Want to Sell a Car? Card -->
+          <div
+            class="bg-pink-100 rounded-xl shadow-lg p-8 flex flex-col md:flex-row items-center justify-between dark:bg-pink-900 object-cover cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+            data-aos="fade-left"
+          >
+            <div class="text-center md:text-left mb-6 md:mb-0">
+              <h3 class="text-2xl font-bold text-gray-800 mb-3 dark:text-white">
+                Do You Want to Sell a Car?
+              </h3>
+              <p class="text-gray-700 mb-6 max-w-md dark:text-gray-300">
+                We are committed to providing our customers with high-quality
+                and reliable services.
+              </p>
+              <button
+                class="bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 px-6 rounded-full shadow-md transition duration-300 dark:bg-pink-700 dark:hover:bg-pink-800"
+              >
+                Get Started
+              </button>
+            </div>
+            <div class="flex-shrink-0">
+              <!-- Example Icon/Illustration (replace with actual SVG if possible) -->
+              <i
+                class="fas fa-handshake text-pink-400 text-6xl dark:text-pink-300"
+              ></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Online, In-person, Everywhere Section -->
+      <section class="py-12 bg-white fade-in-section dark:bg-gray-800">
+        <div
+          class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8"
+          data-aos="fade-up"
+        >
+          <div
+            class="w-full md:w-1/2 object-cover cursor-pointer hover:scale-105 transition-transform duration-1000 ease-in-out"
+          >
+            <img
+              src="./image-Mercedes/1.jpg"
+              alt="Online Shopping"
+              class="rounded-xl shadow-lg w-full h-auto object-cover"
+            />
+          </div>
+          <div class="w-full md:w-1/2 text-center md:text-left">
+            <h2
+              class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 dark:text-white"
+            >
+              Online, in-person, everywhere
+            </h2>
+            <p class="text-gray-700 text-lg mb-6 dark:text-gray-300">
+              Buy or sell your car with ease, whether you prefer online
+              transactions, in-person meetings, or a hybrid approach. We connect
+              you to a vast network of buyers and sellers everywhere.
+            </p>
+            <button
+              class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-md transition duration-300 dark:bg-blue-700 dark:hover:bg-blue-800"
+            >
+              Get Started
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-12 dark:bg-gray-950">
+      <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="text-center md:text-left">
+          <div
+            class="flex flex-col items-center justify-center sm:flex-row sm:justify-start md:flex-col lg:flex-row lg:justify-start mb-4"
+          >
+            <img
+              src="./image/Logo.png"
+              alt="AutoFlux Logo"
+              class="h-36 w-36 rounded-full mb-2 sm:mb-0 sm:mr-2 md:mb-2 md:mr-0 lg:mr-2 lg:mb-0"
+            />
+            <span class="text-md font-bold">AUTOFLUX</span>
+          </div>
+          <p class="text-gray-400 text-sm break-words">
+            Your premier destination for buying and selling cars online.
+            Connecting you with your dream car.
+          </p>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li>
+              <a href="./Home-page.html" class="hover:text-gray-300">Home</a>
+            </li>
+            <li><a href="./shop.html" class="hover:text-gray-300">Shop</a></li>
+            <li>
+              <a href="./about-us.html" class="hover:text-gray-300">About</a>
+            </li>
+            <li>
+              <a href="./contact-us.html" class="hover:text-gray-300"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="text-center md:text-left">
+          <h4 class="font-semibold text-lg text-white mb-4">Our Brand</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li>
+              <a href="./detail-BMW.html" class="hover:text-gray-300">BMW M</a>
+            </li>
+            <li>
+              <a href="./detail-Jeep.html" class="hover:text-gray-300">Jeep</a>
+            </li>
+            <li>
+              <a href="./detail-Mezerdes.html" class="hover:text-gray-300"
+                >Mercedes-AMG</a
+              >
+            </li>
+            <li>
+              <a href="./detail-Ford.html" class="hover:text-gray-300">Ford</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="font-semibold text-lg text-white mb-4">Contact Us</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><i class="fas fa-envelope mr-1"></i>AutoFlux@gmail.com</li>
+            <li><i class="fas fa-phone mr-1"></i> +855 81 528 714</li>
+            <li><i class="fas fa-map-marker-alt mr-1"></i> AutoFlux.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm"
+      >
+        Copyright 2015 All Right Reserved. Made in Logger.
+      </div>
+    </footer>
+    <script src="../node_modules/preline/dist/preline.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      const body = document.body;
+      const themeBtn = document.getElementById("theme-toggle");
+      const mobileThemeBtn = document.getElementById("mobile-theme-toggle");
+      const themeIcon = document.getElementById("theme-icon");
+      const mobileThemeIcon = document.getElementById("mobile-theme-icon");
+
+      let isDark =
+        localStorage.getItem("theme") === "dark" ||
+        (!localStorage.getItem("theme") &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+      function setTheme(dark) {
+        if (dark) {
+          body.classList.add("dark");
+          themeIcon.className = "fa-solid fa-sun";
+          mobileThemeIcon.className = "fa-solid fa-sun";
+          localStorage.setItem("theme", "dark");
+        } else {
+          body.classList.remove("dark");
+          themeIcon.className = "fa-solid fa-moon";
+          mobileThemeIcon.className = "fa-solid fa-moon";
+          localStorage.setItem("theme", "light");
+        }
+      }
+
+      function toggleTheme() {
+        const darkMode = !body.classList.contains("dark");
+        setTheme(darkMode);
+      }
+
+      themeBtn.addEventListener("click", toggleTheme);
+      mobileThemeBtn.addEventListener("click", toggleTheme);
+      setTheme(isDark);
+
+      AOS.init({
+        duration: 1500,
+        once: true, 
+        mirror: false, 
+      });
+
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      const fadeInSections = document.querySelectorAll(".fade-in-section");
+      const observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      fadeInSections.forEach((section) => observer.observe(section));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoflux</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="output.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom overlay for hero section to match original image's darker tint */
+        .hero-background-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+            border-radius: 0.5rem; /* Match parent border-radius */
+        }
+        body {
+        font-family: "Inter", sans-serif;
+        background-color: #f8f9fa; /* Light background as seen in the image */
+        transition: background-color 0.3s ease; /* Smooth transition for dark mode */
+      }
+      /* Dark mode body styles */
+      body.dark {
+        background-color: #1a202c; /* Dark background for dark mode */
+      }
+
+    </style>
+</head>
+  <body class="overflow-x-hidden overflow-y-auto">
+    <header class="bg-gray-800 text-white p-4 shadow-md dark:bg-gray-900">
+      <div class="container mx-auto flex justify-between items-center px-4 md:px-0">
+        <div class="flex items-center">
+          <img src="./image/Logo.png" alt="AutoFlux Logo" class="h-16 w-16 md:h-20 md:w-20 rounded-full mr-2" />
+          <span class="text-md font-bold">AUTOFLUX</span>
+        </div>
+
+        <nav class="hidden md:flex space-x-6">
+          <a href="#" class="hover:text-gray-300">Home</a>
+          <a href="#" class="hover:text-gray-300">Shop</a>
+          <a href="#" class="hover:text-gray-300">About Us</a>
+          <a href="#" class="hover:text-gray-300">Contact</a>
+        </nav>
+
+        <div class="hidden md:flex items-center space-x-4">
+          <button id="theme-toggle" class="text-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-2xl md:text-2xl p-2.5">
+            <i id="theme-icon" class="fa-solid fa-moon"></i>
+          </button>
+          <a href="login.html" class="text-white hover:text-gray-300 cursor-pointer">
+            <i class="fas fa-user-circle text-2xl md:text-3xl"></i>
+          </a>
+        </div>
+
+        <div class="md:hidden flex items-center space-x-4">
+          <button id="mobile-theme-toggle" class="text-gray-400 focus:outline-none text-2xl">
+            <i id="mobile-theme-icon" class="fa-solid fa-moon"></i>
+          </button>
+          <button id="mobile-menu-button" class="text-white focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden bg-gray-800 text-white py-4 mt-2 dark:bg-gray-900">
+        <nav class="flex flex-col items-center space-y-4 px-4">
+          <a href="./Home-page.html" class="hover:text-gray-300 w-full text-center py-2">Home</a>
+          <a href="#" class="hover:text-gray-300 w-full text-center py-2">Shop</a>
+          <a href="#" class="hover:text-gray-300 w-full text-center py-2">About Us</a>
+          <a href="#" class="hover:text-gray-300 w-full text-center py-2">Contact</a>
+          <a href="login.html" class="hover:text-gray-300 w-full text-center py-2">
+            <i class="fas fa-user-circle text-2xl pt-4"></i> Profile
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="container mx-auto px-4 py-8 md:py-16">
+        <div class="relative bg-gray-900 rounded-lg p-6 md:p-12 text-white flex flex-col md:flex-row items-center md:items-start justify-between min-h-[400px] hero-background-overlay"
+            style="background-image: url('https://placehold.co/1200x500/333333/FFFFFF?text=Luxury%20Car%20on%20Road'); background-size: cover; background-position: center;">
+            <!-- Content for hero section, ensuring it's above the overlay -->
+            <div class="relative z-10 flex-1 max-w-lg mb-8 md:mb-0 md:mr-8 text-center md:text-left">
+                <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-4">Experience the road like never before</h1>
+                <p class="text-gray-200 mb-6">Aliquam adipiscing velit semper morbi. Purus non eu cursus porttitor tristique et gravida. Quis nunc interdum gravida ullamcorper.</p>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md">View all cars</button>
+            </div>
+
+            <!-- Login Form -->
+            <div class="relative z-10 bg-white rounded-lg p-6 md:p-8 shadow-xl text-gray-800 w-full md:w-96">
+                <h2 class="text-2xl font-bold mb-2 text-center">Login</h2>
+                <p class="text-sm text-gray-600 mb-6 text-center">Welcome back . Enter your credentials to access your account</p>
+
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700 text-sm font-semibold mb-2">Email Address</label>
+                    <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your email">
+                </div>
+                <div class="mb-6">
+                    <label for="password" class="block text-gray-700 text-sm font-semibold mb-2">Password</label>
+                    <input type="password" id="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your password">
+                    <a href="#" class="text-blue-600 text-sm mt-2 block text-right hover:underline">Forget Password</a>
+                </div>
+
+                <div class="flex items-center mb-6">
+                    <input type="checkbox" id="signedIn" class="rounded text-blue-600 focus:ring-blue-500">
+                    <label for="signedIn" class="ml-2 text-gray-700 text-sm">Keep me signed in</label>
+                </div>
+
+                <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg shadow-md mb-4">Continue</button>
+
+                <div class="text-center text-gray-600 mb-4">or sign up with</div>
+
+                <div class="flex justify-center space-x-4 mb-6">
+                    <button class="flex items-center justify-center p-3 border border-gray-300 rounded-full w-12 h-12 hover:bg-gray-50">
+                        <i class="fab fa-google text-red-500 text-xl"></i>
+                    </button>
+                    <button class="flex items-center justify-center p-3 border border-gray-300 rounded-full w-12 h-12 hover:bg-gray-50">
+                        <i class="fab fa-apple text-gray-800 text-xl"></i>
+                    </button>
+                    <button class="flex items-center justify-center p-3 border border-gray-300 rounded-full w-12 h-12 hover:bg-gray-50">
+                        <i class="fab fa-facebook-f text-blue-600 text-xl"></i>
+                    </button>
+                </div>
+
+                <p class="text-center text-gray-600 text-sm">Don't have an Account ? <a href="#" class="text-blue-600 hover:underline">Sign up here</a></p>
+            </div>
+        </div>
+
+        <!-- Car Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+            <!-- SUV Card (Row 1, Col 1) -->
+            <div class="relative rounded-lg overflow-hidden shadow-lg group">
+                <img src="https://placehold.co/600x400/555555/FFFFFF?text=SUV" alt="SUV Car" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute bottom-4 left-4 bg-white bg-opacity-90 px-4 py-2 rounded-full flex items-center shadow-md">
+                    <span class="font-semibold text-gray-800">SUV</span>
+                </div>
+            </div>
+
+            <!-- MDL 3496 Card (Row 1, Col 2) -->
+            <div class="relative rounded-lg overflow-hidden shadow-lg group">
+                <img src="https://placehold.co/600x400/4F46E5/FFFFFF?text=MDL%203496" alt="MDL 3496 Car" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute bottom-4 left-4 bg-white bg-opacity-90 px-4 py-2 rounded-full flex items-center shadow-md">
+                    <span class="font-semibold text-gray-800">MDL 3496</span>
+                </div>
+            </div>
+
+            <!-- Sedan Card (Row 2, Col 1 - original image has it below MDL 3496) -->
+            <div class="relative rounded-lg overflow-hidden shadow-lg group">
+                <img src="https://placehold.co/600x400/2563EB/FFFFFF?text=Sedan" alt="Sedan Car" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute bottom-4 left-4 bg-white bg-opacity-90 px-4 py-2 rounded-full flex items-center shadow-md">
+                    <span class="font-semibold text-gray-800">Sedan</span>
+                </div>
+            </div>
+
+            <!-- Hatchback Card (Row 2, Col 2) -->
+            <div class="relative rounded-lg overflow-hidden shadow-lg group">
+                <img src="https://placehold.co/600x400/F59E0B/FFFFFF?text=Hatchback" alt="Hatchback Car" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute bottom-4 left-4 bg-white bg-opacity-90 px-4 py-2 rounded-full flex items-center shadow-md">
+                    <span class="font-semibold text-gray-800">Hatchback</span>
+                </div>
+            </div>
+
+            <!-- Hybrid Card (Row 3, Col 1) -->
+            <div class="relative rounded-lg overflow-hidden shadow-lg group">
+                <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Hybrid" alt="Hybrid Car" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute bottom-4 left-4 bg-white bg-opacity-90 px-4 py-2 rounded-full flex items-center shadow-md">
+                    <span class="font-semibold text-gray-800">Hybrid</span>
+                </div>
+            </div>
+
+            <!-- Coupe Card (Row 3, Col 2) -->
+            <div class="relative rounded-lg overflow-hidden shadow-lg group">
+                <img src="https://placehold.co/600x400/EF4444/FFFFFF?text=Coupe" alt="Coupe Car" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute bottom-4 left-4 bg-white bg-opacity-90 px-4 py-2 rounded-full flex items-center shadow-md">
+                    <span class="font-semibold text-gray-800">Coupe</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+<footer class="bg-gray-800 text-white py-12 dark:bg-gray-950">
+      <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="text-center md:text-left">
+          <div class="flex items-center justify-center md:justify-start mb-4">
+            <img src="./image/Logo.png" alt="AutoFlux Logo" class="h-36 w-36 rounded-full mr-2" />
+            <span class="text-md font-bold">AUTOFLUX</span>
+          </div>
+          <p class="text-gray-400 text-sm break-words">
+            Your premier destination for buying and selling cars online. Connecting you with your dream car.
+          </p>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#" class="hover:text-gray-300">Home</a></li>
+            <li><a href="#" class="hover:text-gray-300">Shop</a></li>
+            <li><a href="#" class="hover:text-gray-300">About</a></li>
+            <li><a href="#" class="hover:text-gray-300">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="font-semibold text-lg text-white mb-4">Our Brand</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#" class="hover:text-gray-300">Mercedes-AMG</a></li>
+            <li><a href="#" class="hover:text-gray-300">BMW M</a></li>
+            <li><a href="#" class="hover:text-gray-300">Audi Sport</a></li>
+          </ul>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="font-semibold text-lg text-white mb-4">Contact Us</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><i class="fas fa-envelope mr-1"></i>AutoFlux@gmail.com</li>
+            <li><i class="fas fa-phone mr-1"></i> +855 815 287 14</li>
+            <li><i class="fas fa-map-marker-alt mr-1"></i> AutoFlux.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
+        Copyright 2015 All Right Reserved. Made in Logger.
+      </div>
+    </footer>
+    <script src="../node_modules/preline/dist/preline.js"></script>
+    <script>
+      const body = document.body;
+      const themeBtn = document.getElementById("theme-toggle");
+      const mobileThemeBtn = document.getElementById("mobile-theme-toggle");
+      const themeIcon = document.getElementById("theme-icon");
+      const mobileThemeIcon = document.getElementById("mobile-theme-icon");
+
+      let isDark = localStorage.getItem("theme") === "dark" || (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+      function setTheme(dark) {
+        if (dark) {
+          body.classList.add("dark");
+          themeIcon.className = "fa-solid fa-sun";
+          mobileThemeIcon.className = "fa-solid fa-sun";
+          localStorage.setItem("theme", "dark");
+        } else {
+          body.classList.remove("dark");
+          themeIcon.className = "fa-solid fa-moon";
+          mobileThemeIcon.className = "fa-solid fa-moon";
+          localStorage.setItem("theme", "light");
+        }
+      }
+
+      function toggleTheme() {
+        const darkMode = !body.classList.contains("dark");
+        setTheme(darkMode);
+      }
+
+      themeBtn.addEventListener("click", toggleTheme);
+      mobileThemeBtn.addEventListener("click", toggleTheme);
+      setTheme(isDark);
+
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      const fadeInSections = document.querySelectorAll(".fade-in-section");
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      fadeInSections.forEach((section) => observer.observe(section));
+    </script>
+</body>
+</html>
