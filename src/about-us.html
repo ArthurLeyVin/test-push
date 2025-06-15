@@ -1,66 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AUTOFLUX</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="output.css" />
+    <link rel="shortcut icon" href="./image/Logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="output.css">
     <style>
-      body {
-        font-family: "Inter", sans-serif;
-      }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
     </style>
-  </head>
-  <body class="overflow-x-hidden overflow-y-auto dark:bg-gray-900">
+</head>
+<body class="overflow-x-hidden overflow-y-auto dark:bg-gray-900
+">
     <header class="bg-gray-800 text-white p-4 shadow-md dark:bg-gray-900">
-      <div
-        class="container mx-auto flex justify-between items-center px-4 md:px-0"
-      >
+      <div class="container mx-auto flex justify-between items-center px-4 md:px-0">
         <div class="flex items-center">
-          <img
-            src="./image/Logo.png"
-            alt="AutoFlux Logo"
-            class="h-16 w-16 md:h-20 md:w-20 rounded-full mr-2"
-          />
+          <img src="./image/Logo.png" alt="AutoFlux Logo" class="h-16 w-16 md:h-20 md:w-20 rounded-full mr-2" />
           <span class="text-md font-bold">AUTOFLUX</span>
         </div>
 
         <nav class="hidden md:flex space-x-6">
-          <a href="./Home-page.html" class="hover:text-gray-300">Home</a>
-          <a href="./shop.html" class="hover:text-gray-300">Shop</a>
-          <a href="./about-us.html" class="hover:text-gray-300">About Us</a>
-          <a href="./contact-us.html" class="hover:text-gray-300">Contact</a>
+          <a href="#" class="hover:text-gray-300">Home</a>
+          <a href="#" class="hover:text-gray-300">Shop</a>
+          <a href="#" class="hover:text-gray-300">About Us</a>
+          <a href="#" class="hover:text-gray-300">Contact</a>
         </nav>
 
         <div class="hidden md:flex items-center space-x-4">
-          <button
-            id="theme-toggle"
-            class="text-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-2xl md:text-2xl p-2.5"
-          >
+          <button id="theme-toggle" class="text-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-2xl md:text-2xl p-2.5">
             <i id="theme-icon" class="fa-solid fa-moon"></i>
           </button>
-          <a
-            href="login.html"
-            class="text-white hover:text-gray-300 cursor-pointer"
-          >
+          <a href="login.html" class="text-white hover:text-gray-300 cursor-pointer">
             <i class="fas fa-user-circle text-2xl md:text-3xl"></i>
           </a>
         </div>
 
         <div class="md:hidden flex items-center space-x-4">
-          <button
-            id="mobile-theme-toggle"
-            class="text-gray-400 focus:outline-none text-2xl"
-          >
+          <button id="mobile-theme-toggle" class="text-gray-400 focus:outline-none text-2xl">
             <i id="mobile-theme-icon" class="fa-solid fa-moon"></i>
           </button>
           <button id="mobile-menu-button" class="text-white focus:outline-none">
@@ -68,205 +49,127 @@
           </button>
         </div>
       </div>
+      
 
-      <div
-        id="mobile-menu"
-        class="hidden md:hidden bg-gray-800 text-white py-4 mt-2 dark:bg-gray-900"
-      >
+      <div id="mobile-menu" class="hidden md:hidden bg-gray-800 text-white py-4 mt-2 dark:bg-gray-900">
         <nav class="flex flex-col items-center space-y-4 px-4">
-          <a
-            href="./Home-page.html"
-            class="hover:text-gray-300 w-full text-center py-2"
-            >Home</a
-          >
-          <a href="#" class="hover:text-gray-300 w-full text-center py-2"
-            >Shop</a
-          >
-          <a href="#" class="hover:text-gray-300 w-full text-center py-2"
-            >About Us</a
-          >
-          <a href="#" class="hover:text-gray-300 w-full text-center py-2"
-            >Contact</a
-          >
-          <a
-            href="login.html"
-            class="hover:text-gray-300 w-full text-center py-2"
-          >
+          <a href="./Home-page.html" class="hover:text-gray-300 w-full text-center py-2">Home</a>
+          <a href="#" class="hover:text-gray-300 w-full text-center py-2">Shop</a>
+          <a href="#" class="hover:text-gray-300 w-full text-center py-2">About Us</a>
+          <a href="#" class="hover:text-gray-300 w-full text-center py-2">Contact</a>
+          <a href="login.html" class="hover:text-gray-300 w-full text-center py-2">
             <i class="fas fa-user-circle text-2xl pt-4"></i> Profile
           </a>
         </nav>
       </div>
     </header>
-    <section class="container mx-auto px-4 py-16 dark:bg-gray-800">
-      <h2
-        class="text-3xl md:text-4xl font-bold text-center mb-12 dark:text-white"
-        data-aos="fade-down"
-      >
-        Why Choose Us?
-      </h2>
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-        data-aos="fade-down"
-      >
-        <!-- Card 1: Special Financing Offers -->
-        <div
-          class="bg-white rounded-xl shadow-lg p-6 text-center transition-transform transform hover:scale-105 duration-300 dark:bg-gray-700"
-        >
-          <div class="text-blue-600 text-4xl mb-4">
-            <i class="fa-solid fa-money-check-dollar"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-2 dark:text-white">
-            Special Financing Offers
-          </h3>
-          <p class="text-gray-600 text-sm dark:text-white">
-            Our stress-free finance department can find financial solutions to
-            save you money.
-          </p>
+    <section class="container mx-auto px-4 py-16 dark:bg-gray-800" >
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 dark:text-white" data-aos="fade-down">Why Choose Us?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"data-aos="fade-down">
+            <!-- Card 1: Special Financing Offers -->
+            <div class="bg-white rounded-xl shadow-lg p-6 text-center transition-transform transform hover:scale-105 duration-300 dark:bg-gray-700">
+                <div class="text-blue-600 text-4xl mb-4">
+                    <i class="fa-solid fa-money-check-dollar"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2 dark:text-white">Special Financing Offers</h3>
+                <p class="text-gray-600 text-sm dark:text-white">Our stress-free finance department can find financial solutions to save you money.</p>
+            </div>
+            <!-- Card 2: Trusted Car Dealership -->
+            <div class="bg-white rounded-xl shadow-lg p-6 text-center transition-transform transform hover:scale-105 duration-300 dark:bg-gray-700">
+                <div class="text-blue-600 text-4xl mb-4">
+                    <i class="fas fa-car"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2 dark:text-white">Trusted Car Dealership</h3>
+                <p class="text-gray-600 text-sm dark:text-white">Our stress-free finance department can find financial solutions to save you money.</p>
+            </div>
+            <!-- Card 3: Transparent Pricing -->
+            <div class="bg-white rounded-xl shadow-lg p-6 text-center transition-transform transform hover:scale-105 duration-300 dark:bg-gray-700">
+                <div class="text-blue-600 text-4xl mb-4">
+                    <i class="fas fa-tags"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2 dark:text-white">Transparent Pricing</h3>
+                <p class="text-gray-600 text-sm dark:text-white">Our stress-free finance department can find financial solutions to save you money.</p>
+            </div>
+            <!-- Card 4: Expert Car Service -->
+            <div class="bg-white rounded-xl shadow-lg p-6 text-center transition-transform transform hover:scale-105 duration-300 dark:bg-gray-700">
+                <div class="text-blue-600 text-4xl mb-4">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2 dark:text-white">Expert Car Service</h3>
+                <p class="text-gray-600 text-sm dark:text-white">Our stress-free finance department can find financial solutions to save you money.</p>
+            </div>
         </div>
-        <!-- Card 2: Trusted Car Dealership -->
-        <div
-          class="bg-white rounded-xl shadow-lg p-6 text-center transition-transform transform hover:scale-105 duration-300 dark:bg-gray-700"
-        >
-          <div class="text-blue-600 text-4xl mb-4">
-            <i class="fas fa-car"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-2 dark:text-white">
-            Trusted Car Dealership
-          </h3>
-          <p class="text-gray-600 text-sm dark:text-white">
-            Our stress-free finance department can find financial solutions to
-            save you money.
-          </p>
-        </a>
-        <!-- Card 3: Transparent Pricing -->
-        <div
-          class="bg-white rounded-xl shadow-lg p-6 text-center transition-transform transform hover:scale-105 duration-300 dark:bg-gray-700"
-        >
-          <div class="text-blue-600 text-4xl mb-4">
-            <i class="fas fa-tags"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-2 dark:text-white">
-            Transparent Pricing
-          </h3>
-          <p class="text-gray-600 text-sm dark:text-white">
-            Our stress-free finance department can find financial solutions to
-            save you money.
-          </p>
-        </div>
-        <!-- Card 4: Expert Car Service -->
-        <div
-          class="bg-white rounded-xl shadow-lg p-6 text-center transition-transform transform hover:scale-105 duration-300 dark:bg-gray-700"
-        >
-          <div class="text-blue-600 text-4xl mb-4">
-            <i class="fas fa-tools"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-2 dark:text-white">
-            Expert Car Service
-          </h3>
-          <p class="text-gray-600 text-sm dark:text-white">
-            Our stress-free finance department can find financial solutions to
-            save you money.
-          </p>
-        </div>
-      </div>
     </section>
 
-    <!-- What our customers say Section -->
-    <section
-      class="container mx-auto px-4 py-16 bg-gray-50 rounded-xl shadow-inner dark:bg-gray-800"
-    >
-      <h2
-        class="text-3xl md:text-4xl font-bold text-center mb-12 dark:text-white"
-        data-aos="fade-up"
-      >
-        What our customers say
-      </h2>
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-        data-aos="fade-up"
-      >
-        <!-- Review 1 -->
-        <div class="bg-white rounded-xl shadow-md p-6 dark:bg-gray-700">
-          <div class="flex items-center mb-4 justify-center">
-            <i class="fas fa-star text-yellow-400"></i>
-            <i class="fas fa-star text-yellow-400"></i>
-            <i class="fas fa-star text-yellow-400"></i>
-            <i class="fas fa-star text-yellow-400"></i>
-            <i class="fas fa-star-half-alt text-yellow-400"></i>
-          </div>
-          <p class="text-gray-700 mb-4 text-sm dark:text-white">
-            "Sales process was simple and easy. Maximilian was friendly and
-            didn't feel like a typical salesman."
-          </p>
-          <p class="font-semibold text-gray-800 dark:text-white">- Al Sultan</p>
-        </div>
-        <!-- Review 2 -->
-        <div class="bg-white rounded-xl shadow-md p-6 dark:bg-gray-700">
-          <div class="flex items-center mb-4 justify-center">
-            <i class="fas fa-star text-yellow-400"></i>
-            <i class="fas fa-star text-yellow-400"></i>
-            <i class="fas fa-star text-yellow-400"></i>
-            <i class="fas fa-star text-yellow-400"></i>
-            <i class="fas fa-star text-yellow-400"></i>
-          </div>
 
-          <p class="text-gray-700 mb-4 text-sm dark:text-white">
-            "Good job for project. Smooth and easy. Time was money and didn't
-            feel like a typical salesman."
-          </p>
-          <p class="font-semibold text-gray-800 dark:text-white">- John Doe</p>
+    <!-- What our customers say Section -->
+    <section class="container mx-auto px-4 py-16 bg-gray-50 rounded-xl shadow-inner dark:bg-gray-800">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 dark:text-white" data-aos="fade-up">What our customers say</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"data-aos="fade-up">
+            <!-- Review 1 -->
+            <div class="bg-white rounded-xl shadow-md p-6 dark:bg-gray-700">
+                <div class="flex items-center mb-4 justify-center">
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star-half-alt text-yellow-400"></i>
+                </div>
+                <p class="text-gray-700 mb-4 text-sm dark:text-white">"Sales process was simple and easy. Maximilian was friendly and didn't feel like a typical salesman."</p>
+                <p class="font-semibold text-gray-800 dark:text-white">- Al Sultan</p>
+            </div>
+            <!-- Review 2 -->
+            <div class="bg-white rounded-xl shadow-md p-6 dark:bg-gray-700">
+                <div class="flex items-center mb-4 justify-center">
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                </div>
+
+                <p class="text-gray-700 mb-4 text-sm dark:text-white">"Good job for project. Smooth and easy. Time was money and didn't feel like a typical salesman."</p>
+                <p class="font-semibold text-gray-800 dark:text-white">- John Doe</p>
+            </div>
+            <!-- Review 3 -->
+            <div class="bg-white rounded-xl shadow-md p-6 dark:bg-gray-700">
+                <div class="flex items-center mb-4 justify-center">
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star-half-alt text-yellow-400"></i>
+                </div>
+                <p class="text-gray-700 mb-4 text-sm dark:text-white">"Sales process was simple and easy. Maximilian is making your car search and buying stress-free."</p>
+                <p class="font-semibold text-gray-800 dark:text-white">- Brooklyn Simmons</p>
+            </div>
+            <!-- Review 4 -->
+            <div class="bg-white rounded-xl shadow-md p-6 dark:bg-gray-700 ">
+                <div class="flex items-center mb-4 justify-center">
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                </div>
+                <p class="text-gray-700 mb-4 text-sm dark:text-white">"Good job for project. Sales process was simple and easy. Maximilian was friendly and didn't feel like a typical salesman."</p>
+                <p class="font-semibold text-gray-800 dark:text-white">- Augusta Silva</p>
+            </div>
         </div>
-        <!-- Review 3 -->
-        <div class="bg-white rounded-xl shadow-md p-6 dark:bg-gray-700">
-          <div class="flex items-center mb-4 justify-center">
-            <i class="fas fa-star text-yellow-400"></i>
-            <i class="fas fa-star text-yellow-400"></i>
-            <i class="fas fa-star text-yellow-400"></i>
-            <i class="fas fa-star text-yellow-400"></i>
-            <i class="fas fa-star-half-alt text-yellow-400"></i>
-          </div>
-          <p class="text-gray-700 mb-4 text-sm dark:text-white">
-            "Sales process was simple and easy. Maximilian is making your car
-            search and buying stress-free."
-          </p>
-          <p class="font-semibold text-gray-800 dark:text-white">
-            - Brooklyn Simmons
-          </p>
-        </div>
-        <!-- Review 4 -->
-        <div class="bg-white rounded-xl shadow-md p-6 dark:bg-gray-700">
-          <div class="flex items-center mb-4 justify-center">
-            <i class="fas fa-star text-yellow-400"></i>
-            <i class="fas fa-star text-yellow-400"></i>
-            <i class="fas fa-star text-yellow-400"></i>
-            <i class="fas fa-star text-yellow-400"></i>
-            <i class="fas fa-star text-yellow-400"></i>
-          </div>
-          <p class="text-gray-700 mb-4 text-sm dark:text-white">
-            "Good job for project. Sales process was simple and easy. Maximilian
-            was friendly and didn't feel like a typical salesman."
-          </p>
-          <p class="font-semibold text-gray-800 dark:text-white">
-            - Augusta Silva
-          </p>
-        </div>
-      </div>
     </section>
 
     <!-- Our Team Section -->
     <section class="container mx-auto px-4 py-16">
-      <div class="flex justify-center items-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold dark:text-white">Our Team</h2>
-        <!-- <a href="#" class="text-blue-600 hover:underline font-semibold">View All <i class="fas fa-arrow-right ml-1"></i></a> -->
-      </div>
+        <div class="flex justify-center items-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold dark:text-white">Our Team</h2>
+            <!-- <a href="#" class="text-blue-600 hover:underline font-semibold">View All <i class="fas fa-arrow-right ml-1"></i></a> -->
+        </div>
 
-      <!-- Top and Centered Team Members (New Members) -->
-      <div
-        class="flex flex-wrap justify-center gap-8 mb-12"
-        data-aos="flip-left"
-      >
-        <!-- Team Member 1 (New) -->
-        <!-- <div class="bg-white rounded-xl shadow-lg p-4 text-center w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+
+        <!-- Top and Centered Team Members (New Members) -->
+        <div class="flex flex-wrap justify-center gap-8 mb-12"data-aos="flip-left">
+            <!-- Team Member 1 (New) -->
+            <!-- <div class="bg-white rounded-xl shadow-lg p-4 text-center w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
                 <img src="https://placehold.co/250x250/cccccc/ffffff?text=New+Member+1" alt="New Team Member 1" class="w-40 h-40 md:w-56 md:h-56 rounded-full mx-auto mb-4 object-cover">
                 <h3 class="text-xl font-semibold">New Team Member 1</h3>
                 <p class="text-gray-600">Lead Developer</p>
@@ -276,156 +179,81 @@
                     <a href="#" class="text-gray-600 hover:text-blue-600"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div> -->
-        <!-- Team Member 2 (New) -->
-        <div
-          class="bg-white rounded-xl shadow-lg p-4 text-center w-full sm:w-1/2 md:w-1/3 lg:w-1/4 dark:bg-gray-700"
-        >
-          <img
-            src="https://placehold.co/250x250/cccccc/ffffff?text=New+Member+2"
-            alt="Phann Monika"
-            class="w-40 h-40 md:w-56 md:h-56 rounded-full mx-auto mb-4 object-cover"
-          />
-          <h3 class="text-xl font-semibold dark:text-white">Phann Monika</h3>
-          <p class="text-gray-600 dark:text-white">
-            Front-end developer and Leader
-          </p>
-          <div class="flex justify-center space-x-4 mt-3">
-            <a
-              href="https://www.facebook.com/share/16Y3w5Sxrg/"
-              class="text-gray-600 hover:text-blue-600 dark:text-white"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a
-              href="https://github.com/Monika-Phann"
-              class="text-gray-600 hover:text-blue-600 dark:text-white"
-              ><i class="fa-brands fa-github"></i
-            ></a>
-          </div>
+            <!-- Team Member 2 (New) -->
+            <div class="bg-white rounded-xl shadow-lg p-4 text-center w-full sm:w-1/2 md:w-1/3 lg:w-1/4 dark:bg-gray-700">
+                <img src="https://placehold.co/250x250/cccccc/ffffff?text=New+Member+2" alt="Phann Monika" class="w-40 h-40 md:w-56 md:h-56 rounded-full mx-auto mb-4 object-cover">
+                <h3 class="text-xl font-semibold dark:text-white">Phann Monika</h3>
+                <p class="text-gray-600 dark:text-white">Front-end developer and Leader</p>
+                <div class="flex justify-center space-x-4 mt-3 ">
+                    <a href="https://www.facebook.com/share/16Y3w5Sxrg/" class="text-gray-600 hover:text-blue-600 dark:text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://github.com/Monika-Phann" class="text-gray-600 hover:text-blue-600 dark:text-white"><i class="fa-brands fa-github"></i></a>
+                    
+                </div>
+            </div>
         </div>
-      </div>
 
-      <!-- Remaining Team Members -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div
-          class="bg-white rounded-xl shadow-lg p-4 text-center dark:bg-gray-700"
-          data-aos="flip-right"
-        >
-          <img
-            src="./image/Me.jpg"
-            alt="Chhay Davin"
-            class="w-32 h-32 md:w-48 md:h-48 rounded-full mx-auto mb-4 object-cover"
-          />
-          <h3 class="text-xl font-semibold dark:text-white">Chhay Davin</h3>
-          <p class="text-gray-600 dark:text-white">
-            Front-end developer and Designer
-          </p>
-          <div class="flex justify-center space-x-4 mt-3">
-            <a
-              href="https://www.facebook.com/share/1AH1RDpRTx/?mibextid=wwXIfr"
-              class="text-gray-600 hover:text-blue-600 dark:text-white"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a
-              href="https://github.com/ArthurLeyVin"
-              class="text-gray-600 hover:text-blue-600 dark:text-white"
-              ><i class="fa-brands fa-github"></i
-            ></a>
-          </div>
+
+        <!-- Remaining Team Members -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-white rounded-xl shadow-lg p-4 text-center dark:bg-gray-700"data-aos="flip-right">
+                <img src="./image/Me.jpg" alt="Chhay Davin" class="w-32 h-32 md:w-48 md:h-48 rounded-full mx-auto mb-4 object-cover">
+                <h3 class="text-xl font-semibold dark:text-white">Chhay Davin</h3>
+                <p class="text-gray-600 dark:text-white">Front-end developer and Designer</p>
+                <div class="flex justify-center space-x-4 mt-3">
+                    <a href="https://www.facebook.com/share/1AH1RDpRTx/?mibextid=wwXIfr" class="text-gray-600 hover:text-blue-600 dark:text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://github.com/ArthurLeyVin" class="text-gray-600 hover:text-blue-600 dark:text-white"><i class="fa-brands fa-github"></i></a>
+                    
+                </div>
+            </div>
+            <!-- Team Member 4 (Courtney Henry) -->
+            <div class="bg-white rounded-xl shadow-lg p-4 text-center dark:bg-gray-700"data-aos="flip-right">
+                <img src="https://placehold.co/200x200/cccccc/ffffff?text=Courtney+Henry" alt="Pring Sovannvatey" class="w-32 h-32 md:w-48 md:h-48 rounded-full mx-auto mb-4 object-cover">
+                <h3 class="text-xl font-semibold dark:text-white">Pring Sovannvatey</h3>
+                <p class="text-gray-600 dark:text-white">Front-end developer</p>
+                <div class="flex justify-center space-x-4 mt-3">
+                    <a href="#" class="text-gray-600 hover:text-blue-600 dark:text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-600 hover:text-blue-600 dark:text-white"><i class="fa-brands fa-github"></i></a>
+                    
+                </div>
+            </div>
+            <!-- Team Member 5 (Courtney Henry) -->
+            <div class="bg-white rounded-xl shadow-lg p-4 text-center dark:bg-gray-700"data-aos="flip-left">
+                <img src="https://placehold.co/200x200/cccccc/ffffff?text=Courtney+Henry" alt="Vong Kormva" class="w-32 h-32 md:w-48 md:h-48 rounded-full mx-auto mb-4 object-cover">
+                <h3 class="text-xl font-semibold dark:text-white">Vong Kormva</h3>
+                <p class="text-gray-600 dark:text-white">Front-end developer</p>
+                <div class="flex justify-center space-x-4 mt-3">
+                    <a href="https://www.facebook.com/kormvong.vaa" class="text-gray-600 hover:text-blue-600 dark:text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://github.com/Kormvaa" class="text-gray-600 hover:text-blue-600 dark:text-white"><i class="fa-brands fa-github"></i></a>
+
+                </div>
+            </div>
+            <!-- Team Member 6 (Courtney Henry) -->
+            <div class="bg-white rounded-xl shadow-lg p-4 text-center dark:bg-gray-700"data-aos="flip-left">
+                <img src="https://placehold.co/200x200/cccccc/ffffff?text=Courtney+Henry" alt="Pich Sreypin" class="w-32 h-32 md:w-48 md:h-48 rounded-full mx-auto mb-4 object-cover">
+                <h3 class="text-xl font-semibold dark:text-white">Pich Sreypin</h3>
+                <p class="text-gray-600 dark:text-white">Front-end developer</p>
+                <div class="flex justify-center space-x-4 mt-3">
+                    <a href="https://www.facebook.com/pich.sreypin.77?mibextid=wwXIfr&mibextid=wwXIfr" class="text-gray-600 hover:text-blue-600 dark:text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://github.com/pichsreypin" class="text-gray-600 hover:text-blue-600 dark:text-white"><i class="fa-brands fa-github"></i></a>
+                    
+                </div>
+            </div>
         </div>
-        <!-- Team Member 4 (Courtney Henry) -->
-        <div
-          class="bg-white rounded-xl shadow-lg p-4 text-center dark:bg-gray-700"
-          data-aos="flip-right"
-        >
-          <img
-            src="https://placehold.co/200x200/cccccc/ffffff?text=Courtney+Henry"
-            alt="Pring Sovannvatey"
-            class="w-32 h-32 md:w-48 md:h-48 rounded-full mx-auto mb-4 object-cover"
-          />
-          <h3 class="text-xl font-semibold dark:text-white">
-            Pring Sovannvatey
-          </h3>
-          <p class="text-gray-600 dark:text-white">Front-end developer</p>
-          <div class="flex justify-center space-x-4 mt-3">
-            <a
-              href="#"
-              class="text-gray-600 hover:text-blue-600 dark:text-white"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a
-              href="#"
-              class="text-gray-600 hover:text-blue-600 dark:text-white"
-              ><i class="fa-brands fa-github"></i
-            ></a>
-          </div>
-        </div>
-        <!-- Team Member 5 (Courtney Henry) -->
-        <div
-          class="bg-white rounded-xl shadow-lg p-4 text-center dark:bg-gray-700"
-          data-aos="flip-left"
-        >
-          <img
-            src="https://placehold.co/200x200/cccccc/ffffff?text=Courtney+Henry"
-            alt="Vong Kormva"
-            class="w-32 h-32 md:w-48 md:h-48 rounded-full mx-auto mb-4 object-cover"
-          />
-          <h3 class="text-xl font-semibold dark:text-white">Vong Kormva</h3>
-          <p class="text-gray-600 dark:text-white">Front-end developer</p>
-          <div class="flex justify-center space-x-4 mt-3">
-            <a
-              href="https://www.facebook.com/kormvong.vaa"
-              class="text-gray-600 hover:text-blue-600 dark:text-white"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a
-              href="https://github.com/Kormvaa"
-              class="text-gray-600 hover:text-blue-600 dark:text-white"
-              ><i class="fa-brands fa-github"></i
-            ></a>
-          </div>
-        </div>
-        <!-- Team Member 6 (Courtney Henry) -->
-        <div
-          class="bg-white rounded-xl shadow-lg p-4 text-center dark:bg-gray-700"
-          data-aos="flip-left"
-        >
-          <img
-            src="https://placehold.co/200x200/cccccc/ffffff?text=Courtney+Henry"
-            alt="Pich Sreypin"
-            class="w-32 h-32 md:w-48 md:h-48 rounded-full mx-auto mb-4 object-cover"
-          />
-          <h3 class="text-xl font-semibold dark:text-white">Pich Sreypin</h3>
-          <p class="text-gray-600 dark:text-white">Front-end developer</p>
-          <div class="flex justify-center space-x-4 mt-3">
-            <a
-              href="https://www.facebook.com/pich.sreypin.77?mibextid=wwXIfr&mibextid=wwXIfr"
-              class="text-gray-600 hover:text-blue-600 dark:text-white"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a
-              href="https://github.com/pichsreypin"
-              class="text-gray-600 hover:text-blue-600 dark:text-white"
-              ><i class="fa-brands fa-github"></i
-            ></a>
-          </div>
-        </div>
-      </div>
     </section>
 
+
     <!-- Footer Section -->
-    <footer class="bg-gray-800 text-white py-12 dark:bg-gray-950">
+<footer class="bg-gray-800 text-white py-12 dark:bg-gray-950">
       <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div class="text-center md:text-left">
-          <div
-            class="flex flex-col items-center justify-center sm:flex-row sm:justify-start md:flex-col lg:flex-row lg:justify-start mb-4"
-          >
+          <div class="flex flex-col items-center justify-center sm:flex-row sm:justify-start md:flex-col lg:flex-row lg:justify-start mb-4">
             <img
-              src="./image/Logo.png"
-              alt="AutoFlux Logo"
-              class="h-36 w-36 rounded-full mb-2 sm:mb-0 sm:mr-2 md:mb-2 md:mr-0 lg:mr-2 lg:mb-0"
+            src="./image/Logo.png"
+            alt="AutoFlux Logo"
+            class="h-36 w-36 rounded-full mb-2 sm:mb-0 sm:mr-2 md:mb-2 md:mr-0 lg:mr-2 lg:mb-0"
             />
             <span class="text-md font-bold">AUTOFLUX</span>
-          </div>
+            </div>
           <p class="text-gray-400 text-sm break-words">
             Your premier destination for buying and selling cars online.
             Connecting you with your dream car.
@@ -435,38 +263,20 @@
         <div class="text-center md:text-left">
           <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
           <ul class="space-y-2 text-gray-400 text-sm">
-            <li>
-              <a href="./Home-page.html" class="hover:text-gray-300">Home</a>
-            </li>
-            <li><a href="./shop.html" class="hover:text-gray-300">Shop</a></li>
-            <li>
-              <a href="./about-us.html" class="hover:text-gray-300">About</a>
-            </li>
-            <li>
-              <a href="./contact-us.html" class="hover:text-gray-300"
-                >Contact</a
-              >
-            </li>
+            <li><a href="./Home-page.html" class="hover:text-gray-300">Home</a></li>
+            <li><a href="#" class="hover:text-gray-300">Shop</a></li>
+            <li><a href="#" class="hover:text-gray-300">About</a></li>
+            <li><a href="./contact-us.html" class="hover:text-gray-300">Contact</a></li>
           </ul>
         </div>
 
         <div class="text-center md:text-left">
           <h4 class="font-semibold text-lg text-white mb-4">Our Brand</h4>
           <ul class="space-y-2 text-gray-400 text-sm">
-            <li>
-              <a href="./detail-BMW.html" class="hover:text-gray-300">BMW M</a>
-            </li>
-            <li>
-              <a href="./detail-Jeep.html" class="hover:text-gray-300">Jeep</a>
-            </li>
-            <li>
-              <a href="./detail-Mezerdes.html" class="hover:text-gray-300"
-                >Mercedes-AMG</a
-              >
-            </li>
-            <li>
-              <a href="./detail-Ford.html" class="hover:text-gray-300">Ford</a>
-            </li>
+            <li><a href="./detail-BMW.html" class="hover:text-gray-300">BMW M</a></li>
+            <li><a href="./detail-Jeep.html" class="hover:text-gray-300">Jeep</a></li>
+            <li><a href="./detail-Mezerdes.html" class="hover:text-gray-300">Mercedes-AMG</a></li>
+            <li><a href="./detail-Ford.html" class="hover:text-gray-300">Ford</a></li>
           </ul>
         </div>
 
@@ -519,13 +329,14 @@
         setTheme(darkMode);
       }
 
+
       themeBtn.addEventListener("click", toggleTheme);
       mobileThemeBtn.addEventListener("click", toggleTheme);
       setTheme(isDark);
-
-      AOS.init({
+      
+            AOS.init({
         duration: 1500, // global duration for animations
-        once: true, // whether animation should happen only once - default
+        once: true,    // whether animation should happen only once - default
         mirror: false, // whether elements should animate out while scrolling past them
       });
 
@@ -550,5 +361,7 @@
 
       fadeInSections.forEach((section) => observer.observe(section));
     </script>
-  </body>
+
+</body>
 </html>
+
